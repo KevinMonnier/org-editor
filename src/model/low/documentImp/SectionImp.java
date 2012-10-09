@@ -1,6 +1,10 @@
-package model.low.document;
+package model.low.documentImp;
 
 import java.util.List;
+
+import model.low.document.Section;
+import model.low.document.TextIntro;
+import model.low.document.Title;
 
 public class SectionImp implements Section {
 	private Title title;
