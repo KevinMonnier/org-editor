@@ -1,7 +1,6 @@
 package model.low.document;
 
-public interface Document {
-	public Section getSection(int i);
+public interface Document extends hasSubSection, hasTextIntro{
 
-	public TextIntro getTextIntro();
+	
 }

@@ -1,10 +1,8 @@
 package model.low.document;
 
-public interface Section {
+public interface Section extends hasSubSection, hasTextIntro{
 
 	public Title getTitle();
-
-	public TextIntro getTextIntro();
 
 	public boolean isVisible();
 }

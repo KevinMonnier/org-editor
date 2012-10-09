@@ -11,18 +11,26 @@ public class SectionImp implements Section {
 	private TextIntro text;
 	private List<Section> sections;
 	private boolean visible;
-	
-	
+
 	@Override
 	public Title getTitle() {
 		return title;
 	}
-	@Override
-	public TextIntro getTextIntro() {
-		return text;
-	}
+
 	@Override
 	public boolean isVisible() {
 		return visible;
+	}
+
+	@Override
+	public Section getSubSection(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TextIntro getTextIntro() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
