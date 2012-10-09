@@ -11,4 +11,6 @@ public interface TextIntro {
 	public void remove(int line, int col, int length);
 
 	public void deleteLine(int i);
+	
+	public int getLineNb();
 }

@@ -33,4 +33,10 @@ public class SectionImp implements Section {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public int getSubSectionNb() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
