@@ -2,6 +2,7 @@ package model.low.documentImp;
 
 import java.util.List;
 
+import model.low.document.HasSubSection;
 import model.low.document.Section;
 import model.low.document.TextIntro;
 import model.low.document.Title;
@@ -52,6 +53,12 @@ public class SectionImp implements Section {
 	public int getLineNum() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public HasSubSection getParent() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

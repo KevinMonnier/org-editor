@@ -16,11 +16,6 @@ public class TextIntroImp implements TextIntro {
 		return null;
 	}
 
-	@Override
-	public void addLine(CharSequence cs) {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public void insert(int line, int col, CharSequence str) {
@@ -38,6 +33,18 @@ public class TextIntroImp implements TextIntro {
 	public void deleteLine(int i) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public int getLineNb() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void addLine(int after, CharSequence cs) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -1,6 +1,6 @@
 package model.low.document;
 
-public interface hasSubSection {
+public interface HasSubSection {
 	public Section getSubSection(int i);
 
 	public int getSubSectionNb();

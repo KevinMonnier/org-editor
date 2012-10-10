@@ -1,6 +1,6 @@
 package model.low.document;
 
-public interface hasTextIntro {
+public interface HasTextIntro {
 	
 	public TextIntro getTextIntro();
 	

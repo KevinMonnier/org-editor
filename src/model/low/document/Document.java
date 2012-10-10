@@ -1,6 +1,6 @@
 package model.low.document;
 
-public interface Document extends Composite, hasSubSection, hasTextIntro{
+public interface Document extends Composite, HasSubSection, HasTextIntro{
 
 	
 }
