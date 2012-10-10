@@ -27,4 +27,16 @@ public class DocumentImp implements Document {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void addSubSection(Section subSection) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteSubSection(int i) {
+		// TODO Auto-generated method stub
+		
+	}
 }
