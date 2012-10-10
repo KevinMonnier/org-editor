@@ -7,6 +7,7 @@ import model.low.document.TextIntro;
 import model.low.document.Title;
 
 public class SectionImp implements Section {
+	
 	private Title title;
 	private TextIntro text;
 	private List<Section> sections;
@@ -51,4 +52,11 @@ public class SectionImp implements Section {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public int getLineNum() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
 }

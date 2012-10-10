@@ -1,6 +1,6 @@
 package model.low.document;
 
-public interface TextIntro {
+public interface TextIntro extends Component {
 
 	public CharSequence getLine(int i);
 
@@ -12,5 +12,4 @@ public interface TextIntro {
 
 	public void deleteLine(int i);
 	
-	public int getLineNb();
 }
