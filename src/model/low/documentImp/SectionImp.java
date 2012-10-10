@@ -18,11 +18,6 @@ public class SectionImp implements Section {
 	}
 
 	@Override
-	public boolean isVisible() {
-		return visible;
-	}
-
-	@Override
 	public Section getSubSection(int i) {
 		// TODO Auto-generated method stub
 		return null;

@@ -4,5 +4,4 @@ public interface Section extends hasSubSection, hasTextIntro{
 
 	public Title getTitle();
 
-	public boolean isVisible();
 }
