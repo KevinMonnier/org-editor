@@ -12,4 +12,6 @@ public interface Editor {
 	public int GetSelectedLineNb();
 	
 	public int GetSelectedCharacterNb();
+	
+	public int addCommand(Command c);
 }
