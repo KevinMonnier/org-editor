@@ -9,9 +9,9 @@ public interface Editor {
 	
 	public Text getSelectedText();
 	
-	public int GetSelectedLineNb();
+	public int getSelectedLineNb();
 	
-	public int GetSelectedCharacterNb();
+	public int getSelectedCharacterNb();
 	
 	public int addCommand(Command c);
 }

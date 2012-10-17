@@ -60,5 +60,23 @@ public class SectionImp implements Section {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void addNewSubSection() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addNewSubSection(int at) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addSubSection(Section subSection, int at) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

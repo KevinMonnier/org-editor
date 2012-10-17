@@ -9,7 +9,7 @@ public interface TextIntro extends Component, Text {
 
 	
 	/**
-	 * @param i the number of the line
+	 * @param i the number of the line, starting at 0
 	 * @return return the ith line
 	 */
 	public CharSequence getLine(int i);
