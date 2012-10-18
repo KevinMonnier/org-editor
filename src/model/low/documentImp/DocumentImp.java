@@ -37,8 +37,7 @@ public class DocumentImp implements Document {
 
 	@Override
 	public void deleteSubSection(int i) {
-		// TODO Auto-generated method stub
-		
+		this.sections.remove(i);
 	}
 
 	@Override
@@ -55,7 +54,6 @@ public class DocumentImp implements Document {
 
 	@Override
 	public void addSubSection(Section subSection, int at) {
-		// TODO Auto-generated method stub
-		
+		this.sections.add(at, subSection);
 	}
 }
