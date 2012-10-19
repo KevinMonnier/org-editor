@@ -1,50 +1,46 @@
 package model.low.documentImp;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import model.low.document.TextIntro;
 
 public class TextIntroImp implements TextIntro {
 
-	@Override
-	public int getLineNum() {
-		// TODO Auto-generated method stub
-		return 0;
+	private List<StringBuilder> text;
+
+	public TextIntroImp() {
+		this.text = new ArrayList<StringBuilder>();
 	}
 
 	@Override
 	public CharSequence getLine(int i) {
-		// TODO Auto-generated method stub
-		return null;
+		return text.get(i).toString();
 	}
-
 
 	@Override
 	public void insert(int line, int col, CharSequence str) {
-		// TODO Auto-generated method stub
-
+		text.get(line).insert(col, str);
 	}
 
 	@Override
 	public void remove(int line, int col, int length) {
-		// TODO Auto-generated method stub
-
+		text.get(line).replace(col, col + length, "");
 	}
 
 	@Override
 	public void deleteLine(int i) {
-		// TODO Auto-generated method stub
-
+		text.remove(i);
 	}
 
 	@Override
 	public int getLineNb() {
-		// TODO Auto-generated method stub
-		return 0;
+		return text.size();
 	}
 
 	@Override
 	public void addLine(int after, CharSequence cs) {
-		// TODO Auto-generated method stub
-		
+		text.add(after + 1, new StringBuilder(cs));
 	}
 
 }

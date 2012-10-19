@@ -19,12 +19,6 @@ public class SectionImp extends HasSubSectionImp implements Section {
 	}
 
 	@Override
-	public int getLineNum() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public TextIntro getTextIntro() {
 		return this.text;
 	}
