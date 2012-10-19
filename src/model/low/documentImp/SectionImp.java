@@ -11,6 +11,7 @@ public class SectionImp extends HasSubSectionImp implements Section {
 	
 	private Title title;
 	private TextIntro text;
+	private HasSubSection parent;
 
 	@Override
 	public Title getTitle() {
@@ -25,15 +26,12 @@ public class SectionImp extends HasSubSectionImp implements Section {
 
 	@Override
 	public TextIntro getTextIntro() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.text;
 	}
 
 	@Override
 	public HasSubSection getParent() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.parent;
 	}
-	
-	
+
 }
