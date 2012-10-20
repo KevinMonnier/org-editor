@@ -8,13 +8,14 @@ import model.low.document.TextIntro;
 
 public abstract class HasSubSectionImp implements HasSubSection {
 
-
 	private List<Section> sections;
-	
+
 	@Override
 	public Section getSubSection(int i) {
-		if(i >= this.sections.size() || i < 0) {
-			throw new DocumentException("No such subsection. This document has " + this.sections.size() + "sections");
+		if (i >= this.sections.size() || i < 0) {
+			throw new DocumentException(
+					"No such subsection. This document has "
+							+ this.sections.size() + "sections");
 		}
 		return this.sections.get(i);
 	}
@@ -24,8 +25,6 @@ public abstract class HasSubSectionImp implements HasSubSection {
 		return this.sections.size();
 	}
 
-	
-
 	@Override
 	public void addSubSection(Section subSection) {
 		this.sections.add(subSection);
@@ -34,18 +33,6 @@ public abstract class HasSubSectionImp implements HasSubSection {
 	@Override
 	public void deleteSubSection(int i) {
 		this.sections.remove(i);
-	}
-
-	@Override
-	public void addNewSubSection() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void addNewSubSection(int at) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
