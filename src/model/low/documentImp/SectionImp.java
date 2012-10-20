@@ -12,7 +12,13 @@ public class SectionImp extends HasSubSectionImp implements Section {
 	private Title title;
 	private TextIntro text;
 	private HasSubSection parent;
-
+	
+	public SectionImp(Title title, HasSubSection parent, TextIntro text) {
+		this.title = title;
+		this.parent = parent;
+		this.text = text;
+	}
+	
 	@Override
 	public Title getTitle() {
 		return title;
