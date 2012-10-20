@@ -28,4 +28,9 @@ public class SectionImp extends HasSubSectionImp implements Section {
 		return this.parent;
 	}
 
+	@Override
+	public void setParent(HasSubSection parent) {
+		this.parent = parent;
+	}
+
 }
