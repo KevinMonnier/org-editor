@@ -4,11 +4,15 @@ import model.low.document.Title;
 
 public class TitleImp implements Title {
 	
-	String title;
+	StringBuilder title;
+	
+	public TitleImp() {
+		title = new StringBuilder();
+	}
 	
 	public TitleImp(String title) {
 		super();
-		this.title = title;
+		this.title = new StringBuilder(title);
 	}
 
 	@Override
