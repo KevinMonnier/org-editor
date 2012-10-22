@@ -1,22 +1,23 @@
 package model.low.documentImp;
 
+import model.low.document.Line;
 import model.low.document.Title;
 
 public class TitleImp implements Title {
 	
-	StringBuilder title;
+	Line title;
 	
 	public TitleImp() {
-		title = new StringBuilder();
+		title = new LineImp();
 	}
 	
-	public TitleImp(String title) {
+	public TitleImp(StringBuilder title) {
 		super();
-		this.title = new StringBuilder(title);
+		this.title = new LineImp(title);
 	}
 
 	@Override
-	public CharSequence getTitle() {
+	public Line getTitle() {
 		return title;
 	}
 
