@@ -1,14 +1,19 @@
 package model.high;
 
+import model.low.document.Document;
+import model.low.document.HasSubSection;
 import model.low.document.Section;
 import model.low.document.Text;
 
 public interface Editor {
 	
+	
+	public Document getDocument();
+	
 	/**
 	 * @return the section where the cursor is.
 	 */
-	public Section getSelectedSection();
+	public HasSubSection getSelectedItem();
 	
 	/**
 	 * @return the Text where the cursor is.
