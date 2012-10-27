@@ -42,4 +42,10 @@ public interface Editor {
 	 * @param filePath path to the document.
 	 */
 	public void loadDocument(CharSequence filePath);
+
+	public char getCommandChar();
+	
+	public void moveCursor(int down, int right);
+	
+	
 }
