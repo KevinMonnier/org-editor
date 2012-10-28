@@ -1,4 +1,4 @@
-package model.implementation;
+package model.high.implementation;
 
 import javax.management.RuntimeOperationsException;
 import javax.naming.OperationNotSupportedException;

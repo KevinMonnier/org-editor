@@ -1,4 +1,4 @@
-package model.implementation;
+package model.high.implementation;
 
 import model.high.Command;
 import model.high.Editor;
