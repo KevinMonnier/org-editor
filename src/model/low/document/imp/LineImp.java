@@ -1,4 +1,4 @@
-package model.low.documentImp;
+package model.low.document.imp;
 
 import model.low.document.Line;
 
@@ -34,5 +34,10 @@ public class LineImp implements Line {
 	@Override
 	public void replace(int col, int i, Line line) {
 		this.replace(col, i, line);
+	}
+
+	@Override
+	public int length() {
+		return getContent().length();
 	}
 }

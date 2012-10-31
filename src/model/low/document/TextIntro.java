@@ -1,6 +1,6 @@
 package model.low.document;
 
-public interface TextIntro extends Component, Text {
+public interface TextIntro extends Text {
 	
 	/**
 	 * @return the number of line in the text

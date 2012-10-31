@@ -1,13 +1,12 @@
-package model.implementation;
+package model.high.command;
 
-import model.high.Command;
-import model.high.Editor;
+import model.high.editor.Editor;
 import model.low.document.Document;
 import model.low.document.HasSubSection;
 import model.low.document.Section;
-import model.low.documentImp.SectionImp;
-import model.low.documentImp.TextIntroImp;
-import model.low.documentImp.TitleImp;
+import model.low.document.imp.SectionImp;
+import model.low.document.imp.TextIntroImp;
+import model.low.document.imp.TitleImp;
 
 public class AddSection implements Command {
 

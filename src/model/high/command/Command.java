@@ -1,4 +1,4 @@
-package model.high;
+package model.high.command;
 
 public interface Command {
 	
