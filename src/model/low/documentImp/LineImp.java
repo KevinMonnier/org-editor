@@ -10,7 +10,7 @@ public class LineImp implements Line {
 		this.content = new StringBuilder();
 	}
 	
-	public LineImp(StringBuilder content) {
+	public LineImp(CharSequence content) {
 		this.content = content;
 	}
 
