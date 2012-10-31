@@ -26,6 +26,14 @@ public interface HasSubSection {
 	 */
 	public void addSubSection(Section subSection, int at);
 
+
+	/**
+	 * Add a subsection after the given section (starting at 0)
+	 * @param subSection
+	 * @param after
+	 */
+	public void addSubSection(Section subSection, Section after);
+	
 	/**
 	 * Delete the subsection
 	 * 
