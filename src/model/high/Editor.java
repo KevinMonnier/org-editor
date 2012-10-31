@@ -2,7 +2,6 @@ package model.high;
 
 import model.low.document.Document;
 import model.low.document.HasSubSection;
-import model.low.document.Section;
 import model.low.document.Text;
 
 public interface Editor {
