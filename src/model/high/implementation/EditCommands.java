@@ -16,5 +16,6 @@ public final class EditCommands {
 		UPGRADE = "g",
 		UPGRADE_RECURSIVE = "G",
 		HIDE_OR_SHOW = "p";
+	public static final char COMMAND_CHAR = '\\';
 	
 }
