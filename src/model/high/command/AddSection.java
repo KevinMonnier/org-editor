@@ -1,7 +1,6 @@
-package model.implementation;
+package model.high.command;
 
-import model.high.Command;
-import model.high.Editor;
+import model.high.editor.Editor;
 import model.low.document.Document;
 import model.low.document.HasSubSection;
 import model.low.document.Section;

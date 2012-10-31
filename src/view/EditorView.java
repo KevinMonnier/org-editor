@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,6 +11,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class EditorView extends JFrame {
+
+	private static final long serialVersionUID = 1L;
 
 	JTextField command;
 	JTextArea document;

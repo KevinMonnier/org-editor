@@ -35,4 +35,9 @@ public class LineImp implements Line {
 	public void replace(int col, int i, Line line) {
 		this.replace(col, i, line);
 	}
+
+	@Override
+	public int length() {
+		return getContent().length();
+	}
 }

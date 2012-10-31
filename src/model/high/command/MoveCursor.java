@@ -1,7 +1,6 @@
-package model.implementation;
+package model.high.command;
 
-import model.high.Command;
-import model.high.Editor;
+import model.high.editor.Editor;
 
 public class MoveCursor implements Command {
 	
