@@ -1,6 +1,6 @@
-package model.low.documentImp;
+package model.low.cursor.imp;
 
-import model.low.document.Cursor;
+import model.low.cursor.Cursor;
 import model.low.document.Line;
 
 public class CursorImp implements Cursor {

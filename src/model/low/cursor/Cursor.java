@@ -1,4 +1,4 @@
-package model.low.document;
+package model.low.cursor;
 
 public interface Cursor {
 

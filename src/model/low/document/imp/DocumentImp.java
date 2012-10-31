@@ -1,6 +1,6 @@
-package model.low.documentImp;
+package model.low.document.imp;
 
-import model.low.document.Cursor;
+import model.low.cursor.Cursor;
 import model.low.document.Document;
 import model.low.document.TextIntro;
 

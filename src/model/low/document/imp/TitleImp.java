@@ -1,4 +1,4 @@
-package model.low.documentImp;
+package model.low.document.imp;
 
 import model.low.document.Line;
 import model.low.document.Title;

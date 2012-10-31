@@ -1,4 +1,4 @@
-package model.low.documentImp;
+package model.low.document.imp;
 
 public class DocumentException extends RuntimeException {
 

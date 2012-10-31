@@ -1,4 +1,4 @@
-package model.low.documentImp;
+package model.low.document.imp;
 
 import java.util.ArrayList;
 import java.util.List;
