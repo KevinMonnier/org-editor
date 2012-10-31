@@ -1,4 +1,4 @@
-package model.implementation;
+package model.high.command;
 
 public final class EditCommands {
 

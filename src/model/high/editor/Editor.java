@@ -1,5 +1,6 @@
-package model.high;
+package model.high.editor;
 
+import model.high.command.Command;
 import model.low.document.Document;
 import model.low.document.HasSubSection;
 import model.low.document.Text;
