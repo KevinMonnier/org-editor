@@ -1,6 +1,7 @@
 package model.high.editor;
 
 import model.high.command.Command;
+import model.low.cursor.Cursor;
 import model.low.document.Document;
 import model.low.document.HasSubSection;
 import model.low.document.Text;
@@ -9,6 +10,8 @@ public interface Editor {
 	
 	
 	public Document getDocument();
+	
+	public Cursor getCursor();
 	
 	/**
 	 * @return the section where the cursor is.

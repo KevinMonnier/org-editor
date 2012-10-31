@@ -1,4 +1,4 @@
-package model.low.bufferImp;
+package model.low.buffer.imp;
 
 import java.util.Stack;
 
