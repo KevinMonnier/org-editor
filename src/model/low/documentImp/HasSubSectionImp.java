@@ -4,7 +4,6 @@ import java.util.List;
 
 import model.low.document.HasSubSection;
 import model.low.document.Section;
-import model.low.document.TextIntro;
 
 public abstract class HasSubSectionImp implements HasSubSection {
 

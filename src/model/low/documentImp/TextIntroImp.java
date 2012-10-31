@@ -3,29 +3,30 @@ package model.low.documentImp;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.low.document.Line;
 import model.low.document.TextIntro;
 
 public class TextIntroImp implements TextIntro {
 
-	private List<StringBuilder> text;
+	private List<Line> text;
 
 	public TextIntroImp() {
-		this.text = new ArrayList<StringBuilder>();
+		this.text = new ArrayList<Line>();
 	}
 
 	@Override
-	public CharSequence getLine(int i) {
-		return text.get(i).toString();
+	public Line getLine(int i) {
+		return text.get(i);
 	}
 
 	@Override
-	public void insert(int line, int col, CharSequence str) {
-		text.get(line).insert(col, str);
+	public void insert(int lineNb, int col, Line line) {
+		text.get(lineNb).insert(col, line);
 	}
 
 	@Override
 	public void remove(int line, int col, int length) {
-		text.get(line).replace(col, col + length, "");
+		text.get(line).replace(col, col + length, new LineImp());
 	}
 
 	@Override
@@ -39,8 +40,8 @@ public class TextIntroImp implements TextIntro {
 	}
 
 	@Override
-	public void addLine(int after, CharSequence cs) {
-		text.add(after + 1, new StringBuilder(cs));
+	public void addLine(int after, Line line) {
+		text.add(after + 1, new LineImp(line));
 	}
 
 }
