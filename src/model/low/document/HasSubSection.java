@@ -1,6 +1,12 @@
 package model.low.document;
 
 public interface HasSubSection {
+	
+	
+	/**
+	 * @param i
+	 * @return the subSection number i among the subSections 
+	 */
 	public Section getSubSection(int i);
 
 	/**
@@ -40,5 +46,5 @@ public interface HasSubSection {
 	 * @param i
 	 *            the number of the section to delete, starting at 0
 	 */
-	public void deleteSubSection(int i);
+	public void removeSubSection(int i);
 }
