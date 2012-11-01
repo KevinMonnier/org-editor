@@ -6,6 +6,7 @@ import model.low.document.Document;
 import model.low.document.HasSubSection;
 import model.low.document.Text;
 
+// The editor represents the Client in the Vistor pattern where the cursor is the visitor and the document is the element
 public interface Editor {
 	
 	
