@@ -1,7 +1,10 @@
 package model.low.document;
 
-public interface Title extends Component, Text {
+public interface Title extends Text {
 	
-	CharSequence getTitle();
+	/**
+	 * @return the Line of the Title
+	 */
+	Line getTitle();
 	
 }

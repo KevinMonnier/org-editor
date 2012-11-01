@@ -1,11 +1,9 @@
-package model.low.documentImp;
+package model.low.document.imp;
 
 import java.util.List;
 
 import model.low.document.HasSubSection;
 import model.low.document.Section;
-import model.low.document.TextIntro;
-import model.low.document.imp.DocumentException;
 
 public abstract class HasSubSectionImp implements HasSubSection {
 
@@ -13,7 +11,7 @@ public abstract class HasSubSectionImp implements HasSubSection {
 
 	@Override
 	public Section getSubSection(int i) {
-		if (i >= this.sections.size() || i < 0) {
+		if (i >= getSubSectionNb() || i < 0) {
 			throw new DocumentException(
 					"No such subsection. This document has "
 							+ this.sections.size() + "sections");
@@ -32,18 +30,18 @@ public abstract class HasSubSectionImp implements HasSubSection {
 	}
 
 	@Override
-	public void removeSubSection(int i) {
-		this.sections.remove(i);
-	}
-
-	@Override
 	public void addSubSection(Section subSection, int at) {
 		this.sections.add(at, subSection);
 	}
 
 	@Override
 	public void addSubSection(Section subSection, Section after) {
-		this.sections.add(this.sections.indexOf(after) + 1, subSection);
+		this.sections.add(this.sections.indexOf(after), subSection);
+	}
+	
+	@Override
+	public void removeSubSection(int i) {
+		this.sections.remove(i);
 	}
 
 }

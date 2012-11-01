@@ -1,16 +1,18 @@
-package model.high;
+package model.high.editor;
 
 import model.high.command.Command;
+import model.low.cursor.Cursor;
 import model.low.document.Document;
 import model.low.document.HasSubSection;
-import model.low.document.HasTextIntro;
-import model.low.document.Section;
 import model.low.document.Text;
 
+// The editor represents the Client in the Vistor pattern where the cursor is the visitor and the document is the element
 public interface Editor {
 	
 	
 	public Document getDocument();
+	
+	public Cursor getCursor();
 	
 	/**
 	 * @return the section where the cursor is.
