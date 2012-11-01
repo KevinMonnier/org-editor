@@ -4,8 +4,9 @@ import java.util.ArrayList;
 
 import javax.naming.OperationNotSupportedException;
 
-import model.high.Editor;
 import model.high.command.Command;
+import model.high.editor.Editor;
+import model.low.cursor.Cursor;
 import model.low.document.Document;
 import model.low.document.HasSubSection;
 import model.low.document.HasTextIntro;
@@ -78,6 +79,12 @@ public class EditorImp implements Editor {
 	public void moveCursor(int down, int right) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Cursor getCursor() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

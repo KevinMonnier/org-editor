@@ -3,8 +3,8 @@ package model.high.implementation;
 import javax.management.RuntimeOperationsException;
 import javax.naming.OperationNotSupportedException;
 
-import model.high.Editor;
 import model.high.command.Command;
+import model.high.editor.Editor;
 import model.low.document.Document;
 import model.low.document.HasSubSection;
 import model.low.document.Section;
