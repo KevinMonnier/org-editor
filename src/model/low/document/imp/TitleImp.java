@@ -5,20 +5,26 @@ import model.low.document.Title;
 
 public class TitleImp implements Title {
 	
-	Line title;
+//	Attributes
+	
+	Line line;
+	
+//	Constructors	
 	
 	public TitleImp() {
-		title = new LineImp();
+		line = new LineImp();
 	}
 	
-	public TitleImp(CharSequence title) {
+	public TitleImp(StringBuilder lineContent) {
 		super();
-		this.title = new LineImp(title);
+		this.line = new LineImp(lineContent);
 	}
+	
+//	Accessors	
 
 	@Override
-	public Line getTitle() {
-		return title;
+	public Line getLine() {
+		return line;
 	}
 
 }
