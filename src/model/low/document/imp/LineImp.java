@@ -14,6 +14,10 @@ public class LineImp implements Line {
 		this.content = new StringBuilder();
 	}
 	
+	public LineImp(CharSequence content) {
+		this.content = new StringBuilder(content);
+	}
+	
 	public LineImp(StringBuilder content) {
 		this.content = content;
 	}
