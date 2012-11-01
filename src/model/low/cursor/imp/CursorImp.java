@@ -2,42 +2,67 @@ package model.low.cursor.imp;
 
 import model.low.cursor.Cursor;
 import model.low.document.Line;
+import model.low.document.imp.DocumentException;
+import model.low.document.imp.DocumentImp;
 
 public class CursorImp implements Cursor {
 
-	private int position;
-	private Line line;
+	private int currentPosition;
+	private Line currentLine;
+	private DocumentImp documentImp;
 
-	public CursorImp(int position, Line line) {
-		this.position = position;
-		this.line = line;
+//	Singleton pattern, has to be replaced by the right structure with the dependency injection framework
+	private CursorImp() {
+		this.currentPosition = 0;
 	}
 	
-	public int getPosition() {
-		return position;
+	public Cursor getCursor() {
+		if(this != null) {
+			return this;
+		}
+		return new CursorImp();
 	}
-	public void setPosition(int position) {
-		this.position = position;
+	
+	@Override
+	public DocumentImp getDocumentImp() {
+		return documentImp;
 	}
-	public Line getLine() {
-		return line;
+	
+	@Override
+	public void setDocumentImp(DocumentImp documentImp) {
+		this.documentImp = documentImp;
+		this.currentLine = this.documentImp.getTextIntro().getLine(0);
 	}
-	public void setLine(Line line) {
-		this.line = line;
+	
+	public int getCurrentPosition() {
+		return currentPosition;
+	}
+	public void setCurrentPosition(int newPosition) {
+		this.currentPosition = newPosition;
+	}
+	public Line getCurrentLine() {
+		return currentLine;
+	}
+	public void setCurrentLine(Line newLine) {
+		this.currentLine = newLine;
 	}
 
 	@Override
 	public void movePositionLeft() {
-		if(getPosition()>0){
-			setPosition(getPosition() - 1);
+		if(getCurrentPosition()<=0){
+			throw new DocumentException("Impossible to move the cursor left" +
+					", the cursor is already at the position 0 of the current Line.");
 		}
+		setCurrentPosition(getCurrentPosition() - 1);
 	}
 
 	@Override
-	public void movePoistionRight() {
-		if(getPosition()<getLine().length()){
-			setPosition(getPosition() + 1);
+	public void movePositionRight() {
+		if(getCurrentPosition()>=getCurrentLine().length()){
+			throw new DocumentException("Impossible to move the cursor right" +
+					", the cursor is positioned at the end of the current Line");
 		}
+		setCurrentPosition(getCurrentPosition() + 1);
 	}
 
 	@Override
@@ -51,7 +76,6 @@ public class CursorImp implements Cursor {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
+
 	
 }
