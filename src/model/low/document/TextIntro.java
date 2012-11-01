@@ -22,7 +22,7 @@ public interface TextIntro extends Text {
 	public void addLine(int after, Line line);
 	
 	/**
-	 * Insert a sequence in a line.
+	 * Insert the content of a  Line in a other Line of the text.
 	 * @param lineNb the line in which the sequence is included
 	 * @param col The column after which the sequence is included
 	 * @param line The sequence to include.

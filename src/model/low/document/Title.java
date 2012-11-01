@@ -5,6 +5,6 @@ public interface Title extends Text {
 	/**
 	 * @return the Line of the Title
 	 */
-	Line getTitle();
+	public Line getLine();
 	
 }

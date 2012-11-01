@@ -28,7 +28,7 @@ public class AddSection implements Command {
 		int newSectionLvl = 0;
 		for (newSectionLvl = 0; str.charAt(newSectionLvl) == '*'; newSectionLvl++)
 			;
-		CharSequence title = str.subSequence(newSectionLvl + 2, str.length());
+		StringBuilder title = new StringBuilder(str.subSequence(newSectionLvl + 2, str.length()));
 		if (newSectionLvl > selectedItemLevel) {
 			this.editor.getSelectedItem().addSubSection(
 					new SectionImp(new TitleImp(title), this.editor

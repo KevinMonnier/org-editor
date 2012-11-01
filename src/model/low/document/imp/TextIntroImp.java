@@ -21,12 +21,12 @@ public class TextIntroImp implements TextIntro {
 
 	@Override
 	public void insert(int lineNb, int col, Line line) {
-		text.get(lineNb).insert(col, line);
+		text.get(lineNb).insertContent(col, line);
 	}
 
 	@Override
-	public void remove(int line, int col, int length) {
-		text.get(line).replace(col, col + length, new LineImp());
+	public void remove(int lineNb, int col, int length) {
+		text.get(lineNb).removeContent();
 	}
 
 	@Override
