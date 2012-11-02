@@ -4,6 +4,7 @@ import model.high.command.Command;
 import model.low.cursor.Cursor;
 import model.low.document.Document;
 import model.low.document.HasSubSection;
+import model.low.document.Line;
 import model.low.document.Text;
 
 // The editor represents the Client in the Vistor pattern where the cursor is the visitor and the document is the element
@@ -28,6 +29,8 @@ public interface Editor {
 	 * @return The line number where the cursor is in the selected Text.
 	 */
 	public int getSelectedLineNb();
+	
+	public Line getSelectedLine();
 	
 	/**
 	 * @return The index of the cursor in the line.

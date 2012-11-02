@@ -2,11 +2,15 @@ package model.high.implementation;
 
 import java.util.ArrayList;
 
+import javax.naming.OperationNotSupportedException;
+
 import model.high.command.Command;
 import model.high.editor.Editor;
 import model.low.cursor.Cursor;
 import model.low.document.Document;
 import model.low.document.HasSubSection;
+import model.low.document.HasTextIntro;
+import model.low.document.Line;
 import model.low.document.Text;
 
 public class EditorImp implements Editor {
@@ -80,6 +84,12 @@ public class EditorImp implements Editor {
 
 	@Override
 	public Cursor getCursor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Line getSelectedLine() {
 		// TODO Auto-generated method stub
 		return null;
 	}

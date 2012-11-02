@@ -50,7 +50,16 @@ public class SectionImp extends HasSubSectionImp implements Section {
 	public boolean isVisible() {
 		return state.isVisible(this);
 	}
-	
+
+	@Override
+	public int getLineNb() {
+		int lineNb = this.text.getLineNb() + 1; // +1 for the title
+		for (int i = 0; i < this.getSubSectionNb(); i++) {
+			lineNb += this.getSubSection(i).getLineNb();
+		}
+		return lineNb;
+	}
+
 	public String toString() {
 		String s = getTitle().toString();	
 		if(isVisible()) {
@@ -61,6 +70,5 @@ public class SectionImp extends HasSubSectionImp implements Section {
 		}
 		return s;
 	}
-
 
 }
