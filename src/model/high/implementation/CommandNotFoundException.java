@@ -2,6 +2,8 @@ package model.high.implementation;
 
 public class CommandNotFoundException extends RuntimeException {
 
+	private static final long serialVersionUID = 1L;
+
 	public CommandNotFoundException() {
 		super();
 		// TODO Auto-generated constructor stub

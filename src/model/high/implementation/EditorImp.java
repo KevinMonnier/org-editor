@@ -2,8 +2,6 @@ package model.high.implementation;
 
 import java.util.ArrayList;
 
-import javax.naming.OperationNotSupportedException;
-
 import model.high.command.Command;
 import model.high.editor.Editor;
 import model.low.cursor.Cursor;
