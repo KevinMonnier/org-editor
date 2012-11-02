@@ -51,6 +51,16 @@ public class SectionImp extends HasSubSectionImp implements Section {
 		return state.isVisible(this);
 	}
 	
-	
+	public String toString() {
+		String s = getTitle().toString();	
+		if(isVisible()) {
+			s += getTextIntro().toString();
+			for(Section section : getSubSections()) {
+				s += section.toString();
+			}
+		}
+		return s;
+	}
+
 
 }

@@ -31,5 +31,11 @@ public class TitleImp implements Title {
 	public Line getLine() {
 		return line;
 	}
+	
+//	Methods
+	
+	public String toString() {
+		return getLine().toString() + "\n";
+	}
 
 }
