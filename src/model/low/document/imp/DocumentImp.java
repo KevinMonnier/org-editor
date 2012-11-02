@@ -36,5 +36,14 @@ public class DocumentImp extends HasSubSectionImp implements Document{
 		this.cursor = cursor;
 	}
 
+	@Override
+	public int getLineNb() {
+		int lineNb = this.textIntro.getLineNb();
+		for (int i = 0; i < this.getSubSectionNb(); i++) {
+			lineNb += this.getSubSection(i).getLineNb();
+		}
+		return lineNb;
+	}
+
 	
 }

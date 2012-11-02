@@ -47,4 +47,6 @@ public interface HasSubSection {
 	 *            the number of the section to delete, starting at 0
 	 */
 	public void removeSubSection(int i);
+	
+	public int getLineNb();
 }

@@ -7,19 +7,19 @@ import model.low.document.TextIntro;
 import model.low.document.Title;
 
 public class SectionImp extends HasSubSectionImp implements Section {
-	
+
 	private Title title;
 	private TextIntro text;
 	private HasSubSection parent;
 	private State state;
-	
+
 	public SectionImp(Title title, HasSubSection parent, TextIntro text) {
 		this.title = title;
 		this.parent = parent;
 		this.text = text;
 		this.setState(new Visible());
 	}
-	
+
 	@Override
 	public Title getTitle() {
 		return title;
@@ -43,14 +43,21 @@ public class SectionImp extends HasSubSectionImp implements Section {
 	@Override
 	public void setState(final State NEW_STATE) {
 		this.state = NEW_STATE;
-		
+
 	}
 
 	@Override
 	public boolean isVisible() {
 		return state.isVisible(this);
 	}
-	
-	
+
+	@Override
+	public int getLineNb() {
+		int lineNb = this.text.getLineNb() + 1; // +1 for the title
+		for (int i = 0; i < this.getSubSectionNb(); i++) {
+			lineNb += this.getSubSection(i).getLineNb();
+		}
+		return lineNb;
+	}
 
 }
