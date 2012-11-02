@@ -55,14 +55,18 @@ public class SectionImp extends HasSubSectionImp implements Section {
 
 	@Override
 	public Line getFirstLine() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.getTitle().getLine();
 	}
 
 	@Override
 	public Line getLastLine() {
-		// TODO Auto-generated method stub
-		return null;
+		if(this.isVisible()) {
+			if(this.getSubSectionNb() > 0) {
+				return this.getSubSection(this.getSubSectionNb()).getLastLine();
+			}
+			return this.getTextIntro().getLine(this.getTextIntro().getLineNb());
+		}
+		return this.getTitle().getLine();
 	}
 	
 	@Override
