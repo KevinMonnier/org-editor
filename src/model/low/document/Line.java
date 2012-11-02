@@ -20,6 +20,30 @@ public interface Line extends Element{
 	public Text getParent();
 	
 	/**
+	 * Method to know if the Line is in a Title
+	 * @return true if it is in a Title
+	 */
+	public boolean isInTitle();
+	
+	/**
+	 * Method to know if the Line is in a TextIntro
+	 * @return true if it is in a TextIntro
+	 */
+	public boolean isInTextIntro();
+	
+	/**
+	 * Method to know if the Line is in a Section
+	 * @return true if it is in a Section
+	 */
+	public boolean isInSection();
+	
+	/**
+	 * Method to know if the Line is directly in a Document
+	 * @return true if it is directly in a Document
+	 */
+	public boolean isInDocument();
+	
+	/**
 	 * Method to get the next Line in the tree structure
 	 * @return
 	 */
