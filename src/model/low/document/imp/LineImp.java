@@ -49,6 +49,26 @@ public class LineImp implements Line {
 //	Methods	
 	
 	@Override
+	public boolean isInTitle() {
+		return (this.getParent() instanceof TitleImp);
+	}
+
+	@Override
+	public boolean isInTextIntro() {
+		return (this.getParent() instanceof TextIntroImp);
+	}
+	
+	@Override
+	public boolean isInSection() {
+		return (isInTitle() || (((TextIntroImp)this.getParent()).getParent() instanceof SectionImp));
+	}
+
+	@Override
+	public boolean isInDocument() {
+		return (isInTextIntro() && (((TextIntroImp)this.getParent()).getParent() instanceof DocumentImp));
+	}
+	
+	@Override
 	public Line getNext() {
 		// TODO Auto-generated method stub
 		return null;
