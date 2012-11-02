@@ -1,6 +1,7 @@
 package model.low.document.imp;
 
 import model.low.document.HasSubSection;
+import model.low.document.Line;
 import model.low.document.Section;
 import model.low.document.State;
 import model.low.document.TextIntro;
@@ -40,6 +41,34 @@ public class SectionImp extends HasSubSectionImp implements Section {
 		this.parent = parent;
 	}
 
+	@Override
+	public Section getNext() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Section getPrec() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Line getFirstLine() {
+		return this.getTitle().getLine();
+	}
+
+	@Override
+	public Line getLastLine() {
+		if(this.isVisible()) {
+			if(this.getSubSectionNb() > 0) {
+				return this.getSubSection(this.getSubSectionNb()).getLastLine();
+			}
+			return this.getTextIntro().getLine(this.getTextIntro().getLineNb());
+		}
+		return this.getTitle().getLine();
+	}
+	
 	@Override
 	public void setState(final State NEW_STATE) {
 		this.state = NEW_STATE;

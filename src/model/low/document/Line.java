@@ -14,6 +14,9 @@ public interface Line extends Element{
 	 */
 	public void setContent(StringBuilder content);
 
+	
+//	Methods to navigate between different Lines
+	
 	/**
 	 * @return the parent of the Line
 	 */
@@ -45,16 +48,43 @@ public interface Line extends Element{
 	
 	/**
 	 * Method to get the next Line in the tree structure
-	 * @return
+	 * @return the next Line
 	 */
 	public Line getNext();
 	
 	
 	/**
 	 * Method to get the precedent Line in the tree structure
-	 * @return
+	 * @return the precedent Line
 	 */
 	public Line getPrec();
+
+	/**
+	 * Method to get the next Line from a Title
+	 * @return the next Line
+	 */
+	public Line getNextFromTitle();
+	
+	/**
+	 * Method to get the precedent Line from a Title
+	 * @return the precedent Line
+	 */
+	public Line getPrecFromTitle();
+	
+	/**
+	 * Method to get the next Line from a TextIntro
+	 * @return the next Line
+	 */
+	public Line getNextFromTextIntro();
+	
+	/**
+	 * Method to get the next Line from a TextIntro
+	 * @return the precedent Line
+	 */
+	public Line getPrecFromTextIntro();
+	
+	
+//	Methods to manipulate the content of the Line
 	
 	/**
 	 * Inserts the content of the Line passed as a parameter to the current Line at the position pos
