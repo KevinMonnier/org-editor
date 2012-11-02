@@ -7,6 +7,8 @@ import model.low.document.TextIntro;
 
 public class DocumentImp extends HasSubSectionImp implements Document{
 	
+	private static final Document INSTANCE = new DocumentImp();
+	
 	private TextIntro textIntro;
 	
 //	Singleton pattern, has to be replaced by the right structure with the dependency injection framework
@@ -14,11 +16,8 @@ public class DocumentImp extends HasSubSectionImp implements Document{
 		this.textIntro = new TextIntroImp();
 	}
 	
-	public Document getDocument(){
-		if(this != null) {
-			return this;
-		}
-		return new DocumentImp();
+	public static Document getDocument(){
+		return INSTANCE;
 	}
 	
 	@Override
