@@ -46,7 +46,9 @@ public class LineImp implements Line {
 		return parent;
 	}
 	
-//	Methods	
+//	Methods
+	
+//	Methods to navigate between different Lines
 	
 	@Override
 	public boolean isInTitle() {
@@ -70,15 +72,46 @@ public class LineImp implements Line {
 	
 	@Override
 	public Line getNext() {
+		if(isInTextIntro()) {
+			return getNextFromTextIntro();
+		}
+		return getNextFromTitle();
+	}
+
+	@Override
+	public Line getPrec() {
+		if(isInTextIntro()) {
+			return getPrecFromTextIntro();
+		}
+		return getPrecFromTitle();
+	}
+	
+	@Override
+	public Line getNextFromTitle() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Line getPrec() {
+	public Line getPrecFromTitle() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Line getNextFromTextIntro() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Line getPrecFromTextIntro() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+//	Methods to manipulate the content of the Line
 	
 	@Override
 	public void insertContent(int pos, Line line) {
