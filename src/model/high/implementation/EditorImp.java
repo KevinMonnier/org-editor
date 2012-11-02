@@ -77,7 +77,18 @@ public class EditorImp implements Editor {
 	@Override
 	public void moveCursor(int down, int right) {
 		// TODO Auto-generated method stub
-		
+		for (int i = 0; i < right; i++) {
+			this.getCursor().movePositionRight();
+		}
+		for (int i = 0; i > right; i--) {
+			this.getCursor().movePositionLeft();
+		}
+		for (int i = 0; i < down; i++) {
+			this.getCursor().selectLineDown();
+		}
+		for (int i = 0; i > down; i--) {
+			this.getCursor().selectLineUp();
+		}
 	}
 
 	@Override
