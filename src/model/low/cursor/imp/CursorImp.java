@@ -3,20 +3,21 @@ package model.low.cursor.imp;
 import model.low.cursor.Cursor;
 import model.low.document.Line;
 import model.low.document.imp.DocumentException;
+import model.low.document.imp.TextIntroImp;
+import model.low.document.imp.TitleImp;
 
 public class CursorImp extends VisitorImp implements Cursor {
 
+	private final static Cursor INSTANCE = new CursorImp();
+	
 	private int currentPosition;
 	private Line currentLine;
 
 //	Singleton pattern, has to be replaced by the right structure with the dependency injection framework
 	private CursorImp() {}
 	
-	public Cursor getCursor() {
-		if(this != null) {
-			return this;
-		}
-		return new CursorImp();
+	public static Cursor getCursor() {
+		return INSTANCE;
 	}
 	
 	public int getCurrentPosition() {
@@ -59,7 +60,12 @@ public class CursorImp extends VisitorImp implements Cursor {
 	@Override
 	public void selectLineUp() {
 		setCurrentPosition(0);
-		
+		if(getCurrentLine().getParent() instanceof TitleImp) {
+			
+		}
+		else if(getCurrentLine().getParent() instanceof TextIntroImp) {
+			
+		}
 	}
 
 	@Override
@@ -68,6 +74,4 @@ public class CursorImp extends VisitorImp implements Cursor {
 		
 	}
 
-
-	
 }

@@ -10,11 +10,6 @@ public interface Cursor extends Visitor{
 	public void initCursor();
 	
 	/**
-	 * @return the Instance of the actual Cursor
-	 */
-	public Cursor getCursor();
-	
-	/**
 	 * Moves the position of the cursor to the left.
 	 */
 	public void movePositionLeft();
