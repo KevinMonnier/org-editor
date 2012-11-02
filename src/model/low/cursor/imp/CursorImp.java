@@ -3,35 +3,19 @@ package model.low.cursor.imp;
 import model.low.cursor.Cursor;
 import model.low.document.Line;
 import model.low.document.imp.DocumentException;
-import model.low.document.imp.DocumentImp;
 
-public class CursorImp implements Cursor {
+public class CursorImp extends VisitorImp implements Cursor {
 
+	private final static Cursor INSTANCE = new CursorImp();
+	
 	private int currentPosition;
 	private Line currentLine;
-	private DocumentImp documentImp;
 
 //	Singleton pattern, has to be replaced by the right structure with the dependency injection framework
-	private CursorImp() {
-		this.currentPosition = 0;
-	}
+	private CursorImp() {}
 	
-	public Cursor getCursor() {
-		if(this != null) {
-			return this;
-		}
-		return new CursorImp();
-	}
-	
-	@Override
-	public DocumentImp getDocumentImp() {
-		return documentImp;
-	}
-	
-	@Override
-	public void setDocumentImp(DocumentImp documentImp) {
-		this.documentImp = documentImp;
-		this.currentLine = this.documentImp.getTextIntro().getLine(0);
+	public static Cursor getCursor() {
+		return INSTANCE;
 	}
 	
 	public int getCurrentPosition() {
@@ -47,6 +31,12 @@ public class CursorImp implements Cursor {
 		this.currentLine = newLine;
 	}
 
+	@Override
+	public void initCursor() {
+		this.currentPosition = 0;
+		this.currentLine = getDocument().getTextIntro().getLine(0);	
+	}
+	
 	@Override
 	public void movePositionLeft() {
 		if(getCurrentPosition()<=0){
@@ -67,15 +57,18 @@ public class CursorImp implements Cursor {
 
 	@Override
 	public void selectLineUp() {
-		// TODO Auto-generated method stub
-		
+		if(this.getCurrentLine().getPrec().length() < this.getCurrentPosition()) {
+			this.setCurrentPosition(this.getCurrentLine().getPrec().length());
+		}
+		this.setCurrentLine(this.getCurrentLine().getPrec());
 	}
 
 	@Override
 	public void selectLineDown() {
-		// TODO Auto-generated method stub
-		
+		if(this.getCurrentLine().getNext().length() < this.getCurrentPosition()) {
+			this.setCurrentPosition(this.getCurrentLine().getNext().length());
+		}
+		this.setCurrentLine(this.getCurrentLine().getNext());
 	}
 
-	
 }

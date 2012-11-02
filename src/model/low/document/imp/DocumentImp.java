@@ -1,24 +1,23 @@
 package model.low.document.imp;
 
-import model.low.cursor.Cursor;
+import model.low.cursor.Visitor;
 import model.low.document.Document;
+import model.low.document.Section;
 import model.low.document.TextIntro;
 
 public class DocumentImp extends HasSubSectionImp implements Document{
 	
+	private static final Document INSTANCE = new DocumentImp();
+	
 	private TextIntro textIntro;
-	private Cursor cursor;
 	
 //	Singleton pattern, has to be replaced by the right structure with the dependency injection framework
 	private DocumentImp() {
 		this.textIntro = new TextIntroImp();
 	}
 	
-	public Document getDocument(){
-		if(this != null) {
-			return this;
-		}
-		return new DocumentImp();
+	public static Document getDocument(){
+		return INSTANCE;
 	}
 	
 	@Override
@@ -27,13 +26,16 @@ public class DocumentImp extends HasSubSectionImp implements Document{
 	}
 
 	@Override
-	public Cursor getCursor() {
-		return cursor;
+	public void accept(Visitor visitor) {
+		visitor.visitDocument(this);
 	}
-
-	@Override
-	public void setCursor(Cursor cursor) {
-		this.cursor = cursor;
+	
+	public String toString() {
+		String s = getTextIntro().toString();
+		for(Section section : getSubSections()) {
+			s += section.toString();
+		}
+		return s;
 	}
 
 	@Override

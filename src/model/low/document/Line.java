@@ -15,6 +15,48 @@ public interface Line extends Element{
 	public void setContent(StringBuilder content);
 
 	/**
+	 * @return the parent of the Line
+	 */
+	public Text getParent();
+	
+	/**
+	 * Method to know if the Line is in a Title
+	 * @return true if it is in a Title
+	 */
+	public boolean isInTitle();
+	
+	/**
+	 * Method to know if the Line is in a TextIntro
+	 * @return true if it is in a TextIntro
+	 */
+	public boolean isInTextIntro();
+	
+	/**
+	 * Method to know if the Line is in a Section
+	 * @return true if it is in a Section
+	 */
+	public boolean isInSection();
+	
+	/**
+	 * Method to know if the Line is directly in a Document
+	 * @return true if it is directly in a Document
+	 */
+	public boolean isInDocument();
+	
+	/**
+	 * Method to get the next Line in the tree structure
+	 * @return
+	 */
+	public Line getNext();
+	
+	
+	/**
+	 * Method to get the precedent Line in the tree structure
+	 * @return
+	 */
+	public Line getPrec();
+	
+	/**
 	 * Inserts the content of the Line passed as a parameter to the current Line at the position pos
 	 * @param pos the position where the content will be inserted
 	 * @param line the Line that contains the content to add to the current Line

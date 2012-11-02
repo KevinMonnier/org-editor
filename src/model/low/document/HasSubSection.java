@@ -1,7 +1,13 @@
 package model.low.document;
 
+import java.util.List;
+
 public interface HasSubSection {
 	
+	/**
+	 * @return the List of subSections
+	 */
+	public List<Section> getSubSections();
 	
 	/**
 	 * @param i

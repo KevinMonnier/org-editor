@@ -1,5 +1,7 @@
 package model.low.document;
 
+import java.util.List;
+
 public interface TextIntro extends Text {
 	
 	/**
@@ -7,13 +9,27 @@ public interface TextIntro extends Text {
 	 */
 	public int getLineNb();
 
-	
 	/**
 	 * @param i the number of the line, starting at 0
 	 * @return return the ith line
 	 */
 	public Line getLine(int i);
 
+	/**
+	 * @return the Line List of the text
+	 */
+	public List<Line> getText();
+	
+	/**
+	 * @return the parent of the TextIntro in the tree structure
+	 */
+	public HasTextIntro getParent();
+	
+	/**
+	 * @param parent the parent of the TextIntro in the tree structure
+	 */
+	public void setParent(HasTextIntro parent);
+	
 	/**
 	 * include a line at the given place
 	 * @param after number of the line after which the new line is included
@@ -28,7 +44,6 @@ public interface TextIntro extends Text {
 	 * @param line The sequence to include.
 	 */
 	public void insert(int lineNb, int col, Line line);
-	
 	
 	/**
 	 * Remove a sequence from a line.
