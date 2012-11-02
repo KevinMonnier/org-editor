@@ -15,6 +15,11 @@ public class TitleImp implements Title {
 		line = new LineImp();
 	}
 	
+	public TitleImp(CharSequence lineContent) {
+		super();
+		this.line = new LineImp(lineContent);
+	}
+	
 	public TitleImp(StringBuilder lineContent) {
 		super();
 		this.line = new LineImp(lineContent);
