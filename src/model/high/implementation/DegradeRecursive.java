@@ -5,13 +5,13 @@ import model.high.editor.Editor;
 import model.low.document.HasSubSection;
 import model.low.document.Section;
 
-public class Degrade implements Command {
+public class DegradeRecursive implements Command {
 
 	private Editor editor;
 	
 	@Override
 	public boolean match(CharSequence str) {
-		return str.equals(EditCommands.DOWNGRADE);
+		return str.equals(EditCommands.DOWNGRADE_RECURSIVE);
 	}
 
 	@Override
