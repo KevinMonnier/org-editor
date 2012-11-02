@@ -1,6 +1,7 @@
 package model.low.document.imp;
 
 import model.low.document.Line;
+import model.low.document.Text;
 
 public class LineImp implements Line {
 
@@ -8,34 +9,43 @@ public class LineImp implements Line {
 	
 	private StringBuilder content;
 	
+	private Text parent;
+	
 //	Constructors
 	
-	public LineImp(){
+	public LineImp(Text parent){
 		this.content = new StringBuilder();
 	}
 	
-	public LineImp(CharSequence content) {
+	public LineImp(Text parent, CharSequence content) {
 		this.content = new StringBuilder(content);
 	}
 	
-	public LineImp(StringBuilder content) {
+	public LineImp(Text parent, StringBuilder content) {
 		this.content = content;
 	}
 
-	public LineImp(Line line) {
+	public LineImp(Text parent, Line line) {
 		this.content = line.getContent();
 	}
 	
 //	Accessors	
 	
+	@Override
 	public StringBuilder getContent() {
 		return content;
 	}
 	
+	@Override
 	public void setContent(StringBuilder content) {
 		this.content = content;
 	}
 
+	@Override
+	public Text getParent() {
+		return parent;
+	}
+	
 //	Methods	
 	
 	@Override
@@ -111,11 +121,11 @@ public class LineImp implements Line {
 //	Tests	
 	
 	public static void main(String[] args) {
-		Line line1 = new LineImp();
+		Line line1 = new LineImp(new TitleImp());
 		line1.setContent(new StringBuilder("Bonjour"));
 		System.out.println(line1);
-		Line line2 = new LineImp(new StringBuilder(" Monsieur!"));
-		Line line3 = new LineImp(line1);
+		Line line2 = new LineImp(new TitleImp(), new StringBuilder(" Monsieur!"));
+		Line line3 = new LineImp(new TitleImp(), line1);
 		System.out.println("line3 : "+ line3);
 		line1.insertContent(line1.length(), line2);
 		System.out.println(line1);

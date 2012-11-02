@@ -5,6 +5,11 @@ package model.low.cursor;
 public interface Cursor extends Visitor{
 
 	/**
+	 * Method to init the current Line of the cursor just after been accepted by the document.
+	 */
+	public void initCursor();
+	
+	/**
 	 * @return the Instance of the actual Cursor
 	 */
 	public Cursor getCursor();

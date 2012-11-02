@@ -1,6 +1,5 @@
 package model.low.document.imp;
 
-import model.low.cursor.Visitor;
 import model.low.document.HasSubSection;
 import model.low.document.Section;
 import model.low.document.State;
@@ -61,11 +60,6 @@ public class SectionImp extends HasSubSectionImp implements Section {
 			}
 		}
 		return s;
-	}
-
-	@Override
-	public void accept(Visitor visitor) {
-		visitor.visitSubSection(this);		
 	}
 
 

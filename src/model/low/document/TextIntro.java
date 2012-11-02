@@ -45,7 +45,6 @@ public interface TextIntro extends Text {
 	 */
 	public void insert(int lineNb, int col, Line line);
 	
-	
 	/**
 	 * Remove a sequence from a line.
 	 * @param lineNb The number of the line.

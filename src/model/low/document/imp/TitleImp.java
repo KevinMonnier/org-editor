@@ -1,6 +1,5 @@
 package model.low.document.imp;
 
-import model.low.cursor.Visitor;
 import model.low.document.Line;
 import model.low.document.Section;
 import model.low.document.Title;
@@ -15,17 +14,17 @@ public class TitleImp implements Title {
 //	Constructors	
 	
 	public TitleImp() {
-		line = new LineImp();
+		line = new LineImp(this);
 	}
 	
 	public TitleImp(CharSequence lineContent) {
 		super();
-		this.line = new LineImp(lineContent);
+		this.line = new LineImp(this, lineContent);
 	}
 	
 	public TitleImp(StringBuilder lineContent) {
 		super();
-		this.line = new LineImp(lineContent);
+		this.line = new LineImp(this, lineContent);
 	}
 	
 //	Accessors	
@@ -46,11 +45,6 @@ public class TitleImp implements Title {
 	}
 	
 //	Methods
-	
-	@Override
-	public void accept(Visitor visitor) {
-		visitor.visitTitle(this);
-	}
 	
 	public String toString() {
 		return getLine().toString() + "\n";
