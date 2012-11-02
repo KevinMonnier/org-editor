@@ -15,6 +15,11 @@ public interface Line extends Element{
 	public void setContent(StringBuilder content);
 
 	/**
+	 * @return the parent of the Line
+	 */
+	public Text getParent();
+	
+	/**
 	 * Inserts the content of the Line passed as a parameter to the current Line at the position pos
 	 * @param pos the position where the content will be inserted
 	 * @param line the Line that contains the content to add to the current Line

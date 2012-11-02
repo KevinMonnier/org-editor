@@ -2,6 +2,8 @@ package model.low.document.imp;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import model.low.document.HasTextIntro;
 import model.low.document.Line;
 import model.low.document.TextIntro;
 
@@ -10,6 +12,7 @@ public class TextIntroImp implements TextIntro {
 //	Attributes
 	
 	private List<Line> text;
+	private HasTextIntro parent;
 
 //	Constructors	
 	
@@ -27,6 +30,16 @@ public class TextIntroImp implements TextIntro {
 	@Override
 	public Line getLine(int i) {
 		return text.get(i);
+	}
+	
+	@Override
+	public HasTextIntro getParent() {
+		return parent;
+	}
+
+	@Override
+	public void setParent(HasTextIntro parent) {
+		this.parent = parent;
 	}
 
 //	Methods	
@@ -53,7 +66,7 @@ public class TextIntroImp implements TextIntro {
 
 	@Override
 	public void addLine(int after, Line line) {
-		text.add(after + 1, new LineImp(line));
+		text.add(after + 1, new LineImp(this, line));
 	}
 	
 	public String toString() {
@@ -63,6 +76,5 @@ public class TextIntroImp implements TextIntro {
 		}
 		return s;
 	}
-
 
 }
