@@ -1,5 +1,7 @@
 package model.low.document.imp;
 
+import java.util.List;
+
 import model.low.document.Line;
 import model.low.document.Text;
 
@@ -89,25 +91,52 @@ public class LineImp implements Line {
 	@Override
 	public Line getNextFromTitle() {
 		// TODO Auto-generated method stub
+		//Le cas où la section actuelle serait cachée sont à traiter ici
 		return null;
 	}
 
 	@Override
 	public Line getPrecFromTitle() {
 		// TODO Auto-generated method stub
+		//Le cas où la section precedente serait cachée est traité dans getLastLine() de SectionImp
 		return null;
 	}
 
 	@Override
 	public Line getNextFromTextIntro() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Line> list = ((TextIntroImp)this.getParent()).getText();
+		int lineIndex = 0;
+		for(int i = 0 ; i < list.size() ; i ++) {
+			if(list.get(i).equals(this)){
+				lineIndex = i;
+			}
+		}
+		if (lineIndex >= list.size()) {
+			if(this.isInDocument()) {
+				return ((DocumentImp)((TextIntroImp)this.getParent()).getParent()).getSubSection(0).getFirstLine();
+			}
+			//Penser à traiter le cas où il n'y a pas de section suivante
+			return ((SectionImp)((TextIntroImp)this.getParent()).getParent()).getNext().getFirstLine();
+		}
+		return list.get(lineIndex + 1);
 	}
 
 	@Override
 	public Line getPrecFromTextIntro() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Line> list = ((TextIntroImp)this.getParent()).getText();
+		int lineIndex = 0;
+		for(int i = 0 ; i < list.size() ; i ++) {
+			if(list.get(i).equals(this)){
+				lineIndex = i;
+			}
+		}
+		if(lineIndex == 0) {
+			if(this.isInDocument()) {
+				return this;
+			}
+			return ((SectionImp)((TextIntroImp)this.getParent()).getParent()).getTitle().getLine();
+		}		
+		return list.get(lineIndex - 1);
 	}
 	
 	
