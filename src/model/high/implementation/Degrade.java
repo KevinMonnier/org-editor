@@ -20,7 +20,13 @@ public class Degrade implements Command {
 		if(selectedItem instanceof Section) {
 			Section section = (Section) selectedItem;
 			HasSubSection parent = section.getParent();
-			//TODO finish
+			int index = 0;
+			while(!parent.getSubSection(index).equals(section)) ++index;
+			
+			if(index !=0) {
+				parent.removeSubSection(index);
+				parent.getSubSection(index-1).addSubSection(section);
+			}
 		}
 	}
 
