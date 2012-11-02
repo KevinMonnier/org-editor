@@ -2,6 +2,7 @@ package model.low.document.imp;
 
 import model.low.cursor.Cursor;
 import model.low.document.Document;
+import model.low.document.Section;
 import model.low.document.TextIntro;
 
 public class DocumentImp extends HasSubSectionImp implements Document{
@@ -36,5 +37,11 @@ public class DocumentImp extends HasSubSectionImp implements Document{
 		this.cursor = cursor;
 	}
 
-	
+	public String toString() {
+		String s = getTextIntro().toString();
+		for(Section section : getSubSections()) {
+			s += section.toString();
+		}
+		return s;
+	}
 }

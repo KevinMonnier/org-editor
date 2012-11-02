@@ -1,5 +1,7 @@
 package model.low.document;
 
+import java.util.List;
+
 public interface TextIntro extends Text {
 	
 	/**
@@ -14,6 +16,10 @@ public interface TextIntro extends Text {
 	 */
 	public Line getLine(int i);
 
+	/**
+	 * @return the Line List of the text
+	 */
+	public List<Line> getText();
 	/**
 	 * include a line at the given place
 	 * @param after number of the line after which the new line is included
