@@ -7,7 +7,6 @@ import model.high.editor.Editor;
 import model.low.cursor.Cursor;
 import model.low.document.Document;
 import model.low.document.HasSubSection;
-import model.low.document.HasTextIntro;
 import model.low.document.Line;
 import model.low.document.Text;
 
@@ -19,6 +18,14 @@ public class EditorImp implements Editor {
 	private int selectedCol;
 	private ArrayList<Command> commands;
 	private HasSubSection selectedItem;
+	private Cursor cursor;
+	
+
+	public EditorImp(Document document, Cursor cursor) {
+		super();
+		this.document = document;
+		this.cursor = cursor;
+	}
 
 	@Override
 	public Document getDocument() {
@@ -70,13 +77,11 @@ public class EditorImp implements Editor {
 
 	@Override
 	public char getCommandChar() {
-		// TODO Auto-generated method stub
-		return 0;
+		return EditCommands.COMMAND_CHAR;
 	}
 
 	@Override
 	public void moveCursor(int down, int right) {
-		// TODO Auto-generated method stub
 		for (int i = 0; i < right; i++) {
 			this.getCursor().movePositionRight();
 		}
@@ -93,8 +98,7 @@ public class EditorImp implements Editor {
 
 	@Override
 	public Cursor getCursor() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.cursor;
 	}
 
 	@Override
