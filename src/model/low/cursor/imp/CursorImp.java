@@ -3,8 +3,6 @@ package model.low.cursor.imp;
 import model.low.cursor.Cursor;
 import model.low.document.Line;
 import model.low.document.imp.DocumentException;
-import model.low.document.imp.TextIntroImp;
-import model.low.document.imp.TitleImp;
 
 public class CursorImp extends VisitorImp implements Cursor {
 
@@ -59,19 +57,18 @@ public class CursorImp extends VisitorImp implements Cursor {
 
 	@Override
 	public void selectLineUp() {
-		setCurrentPosition(0);
-		if(getCurrentLine().getParent() instanceof TitleImp) {
-			
+		if(this.getCurrentLine().getPrec().length() < this.getCurrentPosition()) {
+			this.setCurrentPosition(this.getCurrentLine().getPrec().length());
 		}
-		else if(getCurrentLine().getParent() instanceof TextIntroImp) {
-			
-		}
+		this.setCurrentLine(this.getCurrentLine().getPrec());
 	}
 
 	@Override
 	public void selectLineDown() {
-		setCurrentPosition(0);
-		
+		if(this.getCurrentLine().getNext().length() < this.getCurrentPosition()) {
+			this.setCurrentPosition(this.getCurrentLine().getNext().length());
+		}
+		this.setCurrentLine(this.getCurrentLine().getNext());
 	}
 
 }

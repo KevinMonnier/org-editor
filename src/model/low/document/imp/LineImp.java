@@ -49,6 +49,18 @@ public class LineImp implements Line {
 //	Methods	
 	
 	@Override
+	public Line getNext() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Line getPrec() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
 	public void insertContent(int pos, Line line) {
 		if(pos > this.length() || pos < 0) {
 			throw new DocumentException("Impossible to insert something in this line at this position!");

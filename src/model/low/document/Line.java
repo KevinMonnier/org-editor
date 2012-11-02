@@ -20,6 +20,19 @@ public interface Line extends Element{
 	public Text getParent();
 	
 	/**
+	 * Method to get the next Line in the tree structure
+	 * @return
+	 */
+	public Line getNext();
+	
+	
+	/**
+	 * Method to get the precedent Line in the tree structure
+	 * @return
+	 */
+	public Line getPrec();
+	
+	/**
 	 * Inserts the content of the Line passed as a parameter to the current Line at the position pos
 	 * @param pos the position where the content will be inserted
 	 * @param line the Line that contains the content to add to the current Line
