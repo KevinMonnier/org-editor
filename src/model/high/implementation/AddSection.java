@@ -1,8 +1,5 @@
 package model.high.implementation;
 
-import javax.management.RuntimeOperationsException;
-import javax.naming.OperationNotSupportedException;
-
 import model.high.command.Command;
 import model.high.editor.Editor;
 import model.low.document.Document;
