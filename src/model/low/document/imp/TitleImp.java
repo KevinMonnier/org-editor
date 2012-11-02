@@ -1,5 +1,6 @@
 package model.low.document.imp;
 
+import model.low.cursor.Visitor;
 import model.low.document.Line;
 import model.low.document.Title;
 
@@ -33,6 +34,11 @@ public class TitleImp implements Title {
 	}
 	
 //	Methods
+	
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visitTitle(this);
+	}
 	
 	public String toString() {
 		return getLine().toString() + "\n";

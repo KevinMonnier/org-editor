@@ -1,15 +1,19 @@
 package model.low.cursor.imp;
 
+import java.util.List;
+
 import model.low.cursor.Cursor;
+import model.low.document.Document;
 import model.low.document.Line;
+import model.low.document.Section;
+import model.low.document.TextIntro;
+import model.low.document.Title;
 import model.low.document.imp.DocumentException;
-import model.low.document.imp.DocumentImp;
 
 public class CursorImp implements Cursor {
 
 	private int currentPosition;
 	private Line currentLine;
-	private DocumentImp documentImp;
 
 //	Singleton pattern, has to be replaced by the right structure with the dependency injection framework
 	private CursorImp() {
@@ -21,17 +25,6 @@ public class CursorImp implements Cursor {
 			return this;
 		}
 		return new CursorImp();
-	}
-	
-	@Override
-	public DocumentImp getDocumentImp() {
-		return documentImp;
-	}
-	
-	@Override
-	public void setDocumentImp(DocumentImp documentImp) {
-		this.documentImp = documentImp;
-		this.currentLine = this.documentImp.getTextIntro().getLine(0);
 	}
 	
 	public int getCurrentPosition() {
@@ -77,5 +70,34 @@ public class CursorImp implements Cursor {
 		
 	}
 
+	@Override
+	public void visitDocument(Document document) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void visitTextIntro(TextIntro text) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void visitSubSections(List<Section> sections) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void visitSubSection(Section section) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void visitTitle(Title title) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

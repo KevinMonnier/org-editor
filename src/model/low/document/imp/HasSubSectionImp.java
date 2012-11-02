@@ -8,8 +8,6 @@ public abstract class HasSubSectionImp implements HasSubSection {
 
 	private List<Section> subSections;
 
-	
-
 	@Override
 	public List<Section> getSubSections() {
 		return subSections;

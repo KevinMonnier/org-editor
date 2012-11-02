@@ -1,6 +1,6 @@
 package model.low.document;
 
-public interface Section extends Element, HasSubSection, HasTextIntro{
+public interface Section extends Element, HasSubSection, HasTextIntro, Visitable {
 
 	/**
 	 * @return The title of the section.

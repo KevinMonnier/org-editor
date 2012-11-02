@@ -1,5 +1,5 @@
 package model.low.document;
 
-public interface Text {
+public interface Text extends Visitable {
 
 }

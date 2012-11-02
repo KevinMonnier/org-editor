@@ -2,6 +2,8 @@ package model.low.document.imp;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import model.low.cursor.Visitor;
 import model.low.document.Line;
 import model.low.document.TextIntro;
 
@@ -54,6 +56,12 @@ public class TextIntroImp implements TextIntro {
 	@Override
 	public void addLine(int after, Line line) {
 		text.add(after + 1, new LineImp(line));
+	}
+	
+	@Override
+	public void accept(Visitor visitor) {
+		visitor.visitTextIntro(this);
+		
 	}
 	
 	public String toString() {
