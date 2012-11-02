@@ -7,4 +7,14 @@ public interface Title extends Text {
 	 */
 	public Line getLine();
 	
+	/**
+	 * @return the parent of the Title in the tree structure
+	 */
+	public Section getParent();
+	
+	/**
+	 * @param parent the parent of the Title in the tree structure
+	 */
+	public void setParent(Section parent);
+	
 }
