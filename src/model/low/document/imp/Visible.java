@@ -6,7 +6,7 @@ import model.low.document.State;
 public class Visible implements State {
 
 	@Override
-	public boolean isVisible(final Section SECTION_CONTEXT) {
+	public boolean isVisible() {
 		return true;
 	}
 

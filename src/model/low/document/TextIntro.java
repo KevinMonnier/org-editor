@@ -5,7 +5,7 @@ import java.util.List;
 public interface TextIntro extends Text {
 	
 	/**
-	 * @return the number of line in the text
+	 * @return the number of lines in the text
 	 */
 	public int getLineNb();
 
@@ -15,6 +15,16 @@ public interface TextIntro extends Text {
 	 */
 	public Line getLine(int i);
 
+	/**
+	 * @return the first line of the TextIntro
+	 */
+	public Line getFirstLine();
+	
+	/**
+	 * @return the last line of the TextIntro
+	 */
+	public Line getLastLine();
+	
 	/**
 	 * @return the Line List of the text
 	 */
