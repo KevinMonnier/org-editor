@@ -59,5 +59,5 @@ public interface Editor {
 	
 	public void moveCursor(int down, int right);
 	
-	
+	public String print();
 }

@@ -28,6 +28,7 @@ public class CopyLine implements Command {
 		if(!this.match(str))
 			throw new CommandException("this function does not match " + str);
 		
+		
 		Line line = this.editor.getSelectedLine();
 		buffer.push(new LineImp(null, line));//insert a copy
 		
