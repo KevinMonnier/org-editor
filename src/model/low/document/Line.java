@@ -23,6 +23,10 @@ public interface Line extends Element{
 	public Text getParent();
 	
 	/**
+	 * @param parent the new parent of the Line
+	 */
+	public void setParent(Text parent);
+	/**
 	 * Method to know if the Line is in a Title
 	 * @return true if it is in a Title
 	 */
