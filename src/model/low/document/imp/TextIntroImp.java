@@ -67,7 +67,7 @@ public class TextIntroImp implements TextIntro {
 
 	@Override
 	public void insertLine(Line line, Line after) {
-		this.text.add(this.text.indexOf(after), line);
+		this.text.add(this.text.indexOf(after)+1, line);
 	}
 
 	@Override
