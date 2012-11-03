@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.low.document.Line;
 import model.low.document.Text;
+import model.low.document.Title;
 
 public class LineImp implements Line {
 
@@ -98,12 +99,13 @@ public class LineImp implements Line {
 	}
 	
 	@Override
-	public Line getNextFromTitle() {	
-		if (((TitleImp)this.getParent()).getParent().isVisible()) {
-			return ((TitleImp)this.getParent()).getParent().getTextIntro().getFirstLine();
+	public Line getNextFromTitle() {
+		Title title =  (Title)this.getParent();
+		if (title.getParent().isVisible() && title.getParent().getTextIntro().getLineNb() > 0) {
+			return title.getParent().getTextIntro().getFirstLine();
 		} else {
-			if(((TitleImp)this.getParent()).getParent().getNextSection() != null) {
-				return ((TitleImp)this.getParent()).getParent().getNextSection().getFirstLine();
+			if(title.getParent().getNextSection() != null) {
+				return title.getParent().getNextSection().getFirstLine();
 			}
 			return this;
 		}
@@ -120,7 +122,7 @@ public class LineImp implements Line {
 
 	@Override
 	public Line getNextFromTextIntro() {
-		if (this.getIndex() < ((TextIntroImp)this.getParent()).getLineNb()) {
+		if (this.getIndex() < ((TextIntroImp)this.getParent()).getLineNb() - 1 ) {
 			return ((TextIntroImp)this.getParent()).getLine(this.getIndex() + 1);
 		} else {
 			if (((TextIntroImp)this.getParent()).getParent() instanceof DocumentImp) {
@@ -148,7 +150,7 @@ public class LineImp implements Line {
 	
 	@Override
 	public int getIndex() {
-		if(this.isInSection()) {
+		if(this.isInTextIntro()) {
 			List<Line> list = ((TextIntroImp)this.getParent()).getText();
 			return list.indexOf(this);
 		}

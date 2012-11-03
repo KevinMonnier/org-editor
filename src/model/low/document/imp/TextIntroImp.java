@@ -16,8 +16,9 @@ public class TextIntroImp implements TextIntro {
 
 //	Constructors	
 	
-	public TextIntroImp() {
+	public TextIntroImp(HasTextIntro parent) {
 		this.text = new ArrayList<Line>();
+		this.parent = parent;
 	}
 
 //	Accessors		
@@ -67,7 +68,7 @@ public class TextIntroImp implements TextIntro {
 
 	@Override
 	public void insertLine(Line line, Line after) {
-		this.text.add(this.text.indexOf(after), line);
+		this.text.add(this.text.indexOf(after)+1, line);
 	}
 
 	@Override

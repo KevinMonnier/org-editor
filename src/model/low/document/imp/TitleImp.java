@@ -13,18 +13,23 @@ public class TitleImp implements Title {
 	
 //	Constructors	
 	
+	public TitleImp(Section parent) {
+		this.line = new LineImp(this);
+		this.parent = parent;
+	}
+	
+	public TitleImp(CharSequence lineContent, Section parent) {
+		super();
+		this.line = new LineImp(this, lineContent);
+		this.parent = parent;
+	}
+	
 	public TitleImp() {
-		line = new LineImp(this);
+		this.line = new LineImp(this);
 	}
 	
-	public TitleImp(CharSequence lineContent) {
-		super();
-		this.line = new LineImp(this, lineContent);
-	}
-	
-	public TitleImp(StringBuilder lineContent) {
-		super();
-		this.line = new LineImp(this, lineContent);
+	public TitleImp(CharSequence str) {
+		this.line = new LineImp(this, new StringBuilder(str));
 	}
 	
 //	Accessors	

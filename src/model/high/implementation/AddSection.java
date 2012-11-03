@@ -19,7 +19,7 @@ public class AddSection implements Command {
 
 	@Override
 	public boolean match(CharSequence str) {
-		return str.toString().matches("/\\*+.+");
+		return str.toString().matches("\\*+.+");
 	}
 
 	@Override
@@ -27,13 +27,13 @@ public class AddSection implements Command {
 		int selectedItemLevel = this
 				.getItemLevel(this.editor.getSelectedItem());
 		int newSectionLvl = 0;
-		for (newSectionLvl = 0; str.charAt(newSectionLvl) == '*'; newSectionLvl++)
-			;
-		StringBuilder title = new StringBuilder(str.subSequence(newSectionLvl + 2, str.length()));
+		for (newSectionLvl = 0; str.charAt(newSectionLvl) == '*'; newSectionLvl++);
+		
+		StringBuilder title = new StringBuilder(str.subSequence(newSectionLvl + 1, str.length()));
 		if (newSectionLvl > selectedItemLevel) {
 			this.editor.getSelectedItem().addSubSection(
 					new SectionImp(new TitleImp(title), this.editor
-							.getSelectedItem(), new TextIntroImp())); // TODO injection here
+							.getSelectedItem())); // TODO injection here
 		} else {
 			HasSubSection addAfter = this.editor.getSelectedItem();
 			int lvlDiff = newSectionLvl - selectedItemLevel;
@@ -43,9 +43,11 @@ public class AddSection implements Command {
 			}
 			HasSubSection parent = ((Section) addAfter).getParent();
 			parent.insertSubSection(new SectionImp(new TitleImp(title),
-					this.editor.getSelectedItem(), new TextIntroImp()),
+					this.editor.getSelectedItem()),
 					(Section) addAfter);
 		}
+		this.editor.getCursor().selectLineDown();
+		//this.editor.getCursor().selectLineDown();
 	}
 
 	private int getItemLevel(HasSubSection item) {

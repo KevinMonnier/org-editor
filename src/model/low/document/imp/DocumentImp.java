@@ -13,7 +13,7 @@ public class DocumentImp extends HasSubSectionImp implements Document{
 	
 //	Singleton pattern, has to be replaced by the right structure with the dependency injection framework
 	private DocumentImp() {
-		this.textIntro = new TextIntroImp();
+		this.textIntro = new TextIntroImp(this);
 		this.textIntro.addLine(new LineImp(this.textIntro)); //TODO injection here
 	}
 	

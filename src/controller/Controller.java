@@ -15,9 +15,9 @@ public class Controller {
 		this.editor = new EditorImp(CursorImp.getCursor());
 		
 		this.view = new EditorView();
-		
 		this.editor.addCommand(new AddSection(this.editor));
-		this.view.getDocument().setEditable(false);
 		this.view.getDocument().addKeyListener(new WriteKey(editor, view));
+		this.view.getCommand().setAction(new ExecuteCommand(view, editor));
+		
 	}
 }

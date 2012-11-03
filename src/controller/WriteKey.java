@@ -24,6 +24,7 @@ public class WriteKey extends KeyAdapter {
 	@Override
 	public void keyTyped(KeyEvent e) {
 		if(e.getKeyChar() == this.editor.getCommandChar()) {
+			this.view.getCommand().setVisible(true);
 			this.view.getCommand().setText(this.editor.getCommandChar()+"");
 			this.view.getCommand().requestFocusInWindow();
 		}

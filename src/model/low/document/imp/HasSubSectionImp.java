@@ -18,8 +18,8 @@ public abstract class HasSubSectionImp implements HasSubSection {
 	public Section getSubSection(int i) {
 		if (i >= getSubSectionNb() || i < 0) {
 			throw new DocumentException(
-					"No such subsection. This document has "
-							+ this.subSections.size() + "sections");
+					"No such subsection. This item has "
+							+ this.subSections.size() + " sections, cannot get section " + i);
 		}
 		return this.subSections.get(i);
 	}
@@ -44,7 +44,7 @@ public abstract class HasSubSectionImp implements HasSubSection {
 	@Override
 	public void insertSubSection(Section subSection, Section after) {
 		subSection.setParent(this);
-		this.subSections.add(this.subSections.indexOf(after), subSection);
+		this.subSections.add(this.subSections.indexOf(after) + 1, subSection);
 	}
 	
 	@Override
