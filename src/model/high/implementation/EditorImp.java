@@ -111,9 +111,11 @@ public class EditorImp implements Editor {
 			}
 		}
 		
+		for(int i = 0 ; i < this.document.getSubSectionNb() ; i++) {
+			printed.append(this.printSection(this.document.getSubSection(i)));
+		}
 		
-		
-		return null;
+		return printed.toString();
 	}
 	
 	private String printSection(Section section) {
@@ -141,7 +143,7 @@ public class EditorImp implements Editor {
 			}
 		}
 		else {
-			printed.append("...");
+			printed.append("... \n");
 		}
 		
 		
