@@ -16,12 +16,18 @@ import model.low.document.imp.LineImp;
 public class EditorImp implements Editor {
 
 	private Document document;
-	private Text selectedText;
 	private int selectedLine;
-	private int selectedCol;
 	private ArrayList<Command> commands;
 	private HasSubSection selectedItem;
 	private Cursor cursor;
+
+	
+	public EditorImp(Cursor cursor) {
+		super();
+		this.cursor = cursor;
+		this.document = cursor.getDocument();
+		this.commands = new ArrayList<Command>();
+	}
 
 	@Override
 	public Document getDocument() {
