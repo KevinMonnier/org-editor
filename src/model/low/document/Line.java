@@ -23,6 +23,10 @@ public interface Line extends Element{
 	public Text getParent();
 	
 	/**
+	 * @param parent the new parent of the Line
+	 */
+	public void setParent(Text parent);
+	/**
 	 * Method to know if the Line is in a Title
 	 * @return true if it is in a Title
 	 */
@@ -125,11 +129,6 @@ public interface Line extends Element{
 	 * @param newContent the new content
 	 */
 	public void replaceContent(StringBuilder newContent);
-	
-	/**
-	 * Sets the content of the Line to null.
-	 */
-	public void removeContent();
 	
 	/**
 	 * Sets the content of the Line to an empty StringBuilder.
