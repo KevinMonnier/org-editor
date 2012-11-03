@@ -1,5 +1,7 @@
 package model.low.cursor;
 
+import model.low.document.Line;
+
 
 // The cursor represents the visitor in the Visitor pattern
 public interface Cursor extends Visitor{
@@ -28,5 +30,13 @@ public interface Cursor extends Visitor{
 	 * Selects the Line just below the current selected line.
 	 */
 	public void selectLineDown();
+
+	void setCurrentPosition(int newPosition);
+
+	int getCurrentPosition();
+
+	Line getCurrentLine();
+
+	void setCurrentLine(Line newLine);
 	
 }
