@@ -17,18 +17,22 @@ public class LineImp implements Line {
 	
 	public LineImp(Text parent){
 		this.content = new StringBuilder();
+		this.parent = parent;
 	}
 	
 	public LineImp(Text parent, CharSequence content) {
 		this.content = new StringBuilder(content);
+		this.parent = parent;
 	}
 	
 	public LineImp(Text parent, StringBuilder content) {
 		this.content = content;
+		this.parent = parent;
 	}
 
 	public LineImp(Text parent, Line line) {
 		this.content = line.getContent();
+		this.parent = parent;
 	}
 	
 //	Accessors	
@@ -46,6 +50,11 @@ public class LineImp implements Line {
 	@Override
 	public Text getParent() {
 		return parent;
+	}
+	
+	@Override
+	public void setParent(Text parent) {
+		this.parent = parent;
 	}
 	
 //	Methods
@@ -131,13 +140,7 @@ public class LineImp implements Line {
 	public int getIndex() {
 		if(this.isInSection()) {
 			List<Line> list = ((TextIntroImp)this.getParent()).getText();
-			int lineIndex = 0;
-			for(int i = 0 ; i < list.size() ; i ++) {
-				if(list.get(i).equals(this)){
-					lineIndex = i;
-				}
-			}
-			return lineIndex;
+			return list.indexOf(this);
 		}
 		return 0;
 	}
@@ -177,11 +180,6 @@ public class LineImp implements Line {
 	@Override
 	public void replaceContent(StringBuilder newContent) {
 		this.setContent(new StringBuilder(newContent));
-	}
-	
-	@Override
-	public void removeContent() {
-		this.setContent(null);
 	}
 	
 	@Override

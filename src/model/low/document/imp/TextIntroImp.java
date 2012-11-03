@@ -45,18 +45,24 @@ public class TextIntroImp implements TextIntro {
 //	Methods	
 	
 	@Override
-	public void insert(int lineNb, int col, Line line) {
-		text.get(lineNb).insertContent(col, line);
+	public void addLine(Line line) {
+		text.add(new LineImp(this, line));
+	}
+	
+	@Override
+	public void insertLine(Line line, int at) {
+		this.text.add(at, line);
+		
 	}
 
 	@Override
-	public void remove(int lineNb, int col, int length) {
-		text.get(lineNb).removeContent();
+	public void insertLine(Line line, Line after) {
+		this.text.add(this.text.indexOf(after), line);
 	}
 
 	@Override
-	public void deleteLine(int i) {
-		text.remove(i);
+	public void remove(int i) {
+		this.text.remove(i);
 	}
 
 	@Override
@@ -64,10 +70,6 @@ public class TextIntroImp implements TextIntro {
 		return text.size();
 	}
 
-	@Override
-	public void addLine(int after, Line line) {
-		text.add(after + 1, new LineImp(this, line));
-	}
 	
 	public String toString() {
 		String s = "";

@@ -31,32 +31,29 @@ public interface TextIntro extends Text {
 	public void setParent(HasTextIntro parent);
 	
 	/**
-	 * include a line at the given place
-	 * @param after number of the line after which the new line is included
-	 * @param line the line to insert
+	 * Add a new Line at the end of the TextIntro.
+	 * @param line the line to add
 	 */
-	public void addLine(int after, Line line);
+	public void addLine(Line line);
 	
 	/**
-	 * Insert the content of a  Line in a other Line of the text.
-	 * @param lineNb the line in which the sequence is included
-	 * @param col The column after which the sequence is included
-	 * @param line The sequence to include.
+	 * Inserts a new Line at the given position (starting at 0).
+	 * @param line the Line to insert
+	 * @param at the position of the Line
 	 */
-	public void insert(int lineNb, int col, Line line);
+	public void insertLine(Line line, int at);
 	
 	/**
-	 * Remove a sequence from a line.
-	 * @param lineNb The number of the line.
-	 * @param col The character after which the sequence will be removed
-	 * @param length the length of the sequence to remove
+	 * Inserts a new Line after the given Line (starting at 0).
+	 * @param line the Line to insert
+	 * @param after the Line the other will be inserted
 	 */
-	public void remove(int lineNb, int col, int length);
+	public void insertLine(Line line, Line after);
 
 	/**
 	 * Delete a line.
 	 * @param i The number of the line to remove.
 	 */
-	public void deleteLine(int i);
+	public void remove(int i);
 	
 }

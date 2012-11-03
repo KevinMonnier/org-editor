@@ -52,5 +52,5 @@ public class AddSection implements Command {
 		return item instanceof Document ? 0 : 1 + getItemLevel(((Section) item)
 				.getParent());
 	}
-
+	
 }
