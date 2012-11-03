@@ -98,42 +98,52 @@ public class LineImp implements Line {
 	}
 	
 	@Override
-	public Line getNextFromTitle() {
-		// TODO Auto-generated method stub
-		//Le cas où la section actuelle serait cachée sont à traiter ici
-		return null;
+	public Line getNextFromTitle() {	
+		if (((TitleImp)this.getParent()).getParent().isVisible()) {
+			return ((TitleImp)this.getParent()).getParent().getTextIntro().getFirstLine();
+		} else {
+			if(((TitleImp)this.getParent()).getParent().getNext() != null) {
+				return ((TitleImp)this.getParent()).getParent().getNext().getFirstLine();
+			}
+			return this;
+		}
 	}
 
 	@Override
 	public Line getPrecFromTitle() {
-		// TODO Auto-generated method stub
-		//Le cas où la section precedente serait cachée est traité dans getLastLine() de SectionImp
-		return null;
+		if(((TitleImp)this.getParent()).getParent().getParent() instanceof DocumentImp) {
+			return ((DocumentImp)((TitleImp)this.getParent()).getParent().getParent()).getTextIntro().getLastLine();
+		}else {
+			return ((TitleImp)this.getParent()).getParent().getPrec().getLastLine();
+		}
 	}
 
 	@Override
 	public Line getNextFromTextIntro() {
-		List<Line> list = ((TextIntroImp)this.getParent()).getText();
-		if (this.getIndex() >= list.size()) {
-			if(this.isInDocument()) {
-				return ((DocumentImp)((TextIntroImp)this.getParent()).getParent()).getSubSection(0).getFirstLine();
-			}
-			//Penser à traiter le cas où il n'y a pas de section suivante
-			return ((SectionImp)((TextIntroImp)this.getParent()).getParent()).getNext().getFirstLine();
+		if (this.getIndex() < ((TextIntroImp)this.getParent()).getLineNb()) {
+			return ((TextIntroImp)this.getParent()).getLine(this.getIndex() + 1);
+		} else {
+			if (((TextIntroImp)this.getParent()).getParent() instanceof DocumentImp) {
+				return ((DocumentImp)((TextIntroImp)this.getParent()).getParent()).getSubSection(0).getTitle().getLine();
+			} else if (((SectionImp)((TextIntroImp)this.getParent()).getParent()).getNext() != null) {
+				return ((SectionImp)((TextIntroImp)this.getParent()).getParent()).getNext().getFirstLine();
+			} else {
+				return this;
+			}	
 		}
-		return list.get(this.getIndex() + 1);
+		
 	}
 
 	@Override
 	public Line getPrecFromTextIntro() {
 		if(this.getIndex() == 0) {
-			if(this.isInDocument()) {
+			if(((TextIntroImp)this.getParent()).getParent() instanceof DocumentImp) {
 				return this;
+			} else {
+				((SectionImp)((TextIntroImp)this.getParent()).getParent()).getTitle().getLine();
 			}
-			return ((SectionImp)((TextIntroImp)this.getParent()).getParent()).getTitle().getLine();
 		}
-		List<Line> list = ((TextIntroImp)this.getParent()).getText();
-		return list.get(this.getIndex() - 1);
+		return ((TextIntroImp)this.getParent()).getLine(this.getIndex()-1);
 	}
 	
 	@Override

@@ -33,6 +33,16 @@ public class TextIntroImp implements TextIntro {
 	}
 	
 	@Override
+	public Line getFirstLine() {
+		return this.getLine(0);
+	}
+
+	@Override
+	public Line getLastLine() {
+		return this.getLine(this.getLineNb());
+	}
+	
+	@Override
 	public HasTextIntro getParent() {
 		return parent;
 	}
