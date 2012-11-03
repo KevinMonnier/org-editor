@@ -77,7 +77,7 @@ public class SectionImp extends HasSubSectionImp implements Section {
 
 	@Override
 	public boolean isVisible() {
-		return state.isVisible(this);
+		return state.isVisible();
 	}
 
 	@Override
