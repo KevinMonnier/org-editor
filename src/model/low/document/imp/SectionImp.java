@@ -58,7 +58,7 @@ public class SectionImp extends HasSubSectionImp implements Section {
 	public Section getPrecSection() {
 		if(this.getIndex() > 0) {
 			if (this.getParent().getSubSection(this.getIndex() - 1).getSubSectionNb() > 0) {
-				this.getParent().getLastDescendant();
+				return this.getParent().getLastDescendant();
 			} else {
 				return this.getParent().getSubSection(this.getIndex() - 1);
 			}
