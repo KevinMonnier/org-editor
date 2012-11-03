@@ -120,7 +120,7 @@ public class LineImp implements Line {
 
 	@Override
 	public Line getNextFromTextIntro() {
-		if (this.getIndex() < ((TextIntroImp)this.getParent()).getLineNb()) {
+		if (this.getIndex() < ((TextIntroImp)this.getParent()).getLineNb() - 1 ) {
 			return ((TextIntroImp)this.getParent()).getLine(this.getIndex() + 1);
 		} else {
 			if (((TextIntroImp)this.getParent()).getParent() instanceof DocumentImp) {

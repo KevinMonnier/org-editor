@@ -8,10 +8,12 @@ import model.low.cursor.Cursor;
 import model.low.cursor.imp.CursorImp;
 import model.low.document.Document;
 import model.low.document.HasSubSection;
+import model.low.document.HasTextIntro;
 import model.low.document.Line;
 import model.low.document.Section;
 import model.low.document.Text;
 import model.low.document.TextIntro;
+import model.low.document.Title;
 import model.low.document.imp.DocumentImp;
 import model.low.document.imp.LineImp;
 
@@ -23,7 +25,6 @@ public class EditorImp implements Editor {
 	private HasSubSection selectedItem;
 	private Cursor cursor;
 
-	
 	public EditorImp(Cursor cursor) {
 		super();
 		this.cursor = cursor;
@@ -41,7 +42,11 @@ public class EditorImp implements Editor {
 
 	@Override
 	public HasSubSection getSelectedItem() {
-		return this.selectedItem;
+		Text lineContainer = this.getCursor().getCurrentLine().getParent();
+		if (lineContainer instanceof TextIntro)
+			return (HasSubSection) ((TextIntro) lineContainer).getParent();
+		else
+			return ((Title) lineContainer).getParent();
 	}
 
 	@Override
@@ -62,7 +67,7 @@ public class EditorImp implements Editor {
 	@Override
 	public void executeCommand(String c) {
 		int i = 0;
-		while (!this.commands.get(i).match(c)) {
+		while (i < this.commands.size() && !this.commands.get(i).match(c)) {
 			i++;
 		}
 		if (i >= this.commands.size())
@@ -124,20 +129,23 @@ public class EditorImp implements Editor {
 		}
 
 		for (int i = 0; i < this.document.getSubSectionNb(); i++) {
-			printed.append(this.printSection(this.document.getSubSection(i)));
+			printed.append(this.printSection(this.document.getSubSection(i), 1));
 		}
 
 		return printed.toString();
 	}
 
-	private String printSection(Section section) {
+	private String printSection(Section section, int lvl) {
 		Line selectedLine = this.getSelectedLine();
 		StringBuilder printed = new StringBuilder();
+		for (int i = 0; i < lvl; i++) {
+			printed.append("*");
+		}
 		if (section.getTitle().getLine().equals(selectedLine)) {
 			printed.append(new StringBuilder(section.getTitle().getLine()
 					.toString()).insert(this.getSelectedCharacterNb(), "[]"));
 		} else
-			printed.append(section.getTitle().getLine().toString());
+			printed.append(section.getTitle().getLine().toString() + "\n");
 
 		if (section.isVisible()) {
 			TextIntro intro = section.getTextIntro();
@@ -152,7 +160,7 @@ public class EditorImp implements Editor {
 			}
 
 			for (int i = 0; i < section.getSubSectionNb(); i++) {
-				this.printSection(section.getSubSection(i));
+				this.printSection(section.getSubSection(i), lvl + 1);
 			}
 		} else {
 			printed.append("... \n");
@@ -165,8 +173,9 @@ public class EditorImp implements Editor {
 	public void newLine() {
 		// TODO Auto-generated method stub
 		Text parent = this.getSelectedLine().getParent();
-		if(parent instanceof TextIntro) {
-			((TextIntro)parent).insertLine(new LineImp(parent), this.getSelectedLine());
+		if (parent instanceof TextIntro) {
+			((TextIntro) parent).insertLine(new LineImp(parent),
+					this.getSelectedLine());
 			this.getCursor().selectLineDown();
 		}
 	}

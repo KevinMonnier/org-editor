@@ -16,8 +16,9 @@ public class TextIntroImp implements TextIntro {
 
 //	Constructors	
 	
-	public TextIntroImp() {
+	public TextIntroImp(HasTextIntro parent) {
 		this.text = new ArrayList<Line>();
+		this.parent = parent;
 	}
 
 //	Accessors		

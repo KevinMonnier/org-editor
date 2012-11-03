@@ -14,10 +14,10 @@ public class SectionImp extends HasSubSectionImp implements Section {
 	private HasSubSection parent;
 	private State state;
 	
-	public SectionImp(Title title, HasSubSection parent, TextIntro text) {
+	public SectionImp(Title title, HasSubSection parent) {
 		this.title = title;
 		this.parent = parent;
-		this.text = text;
+		this.text = new TextIntroImp(this);
 		this.setState(new Visible());
 	}
 	

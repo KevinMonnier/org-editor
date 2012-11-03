@@ -18,6 +18,11 @@ public class EditorView extends JFrame {
 	JTextArea document;
 	JButton executeButton;
 
+
+	public JButton getExecuteButton() {
+		return executeButton;
+	}
+
 	public EditorView() {
 		super("Editor");
 		JMenuBar menuBar = new JMenuBar();
@@ -29,6 +34,7 @@ public class EditorView extends JFrame {
 
 		this.document = new JTextArea("Test");
 		this.document.setLineWrap(true);
+		this.document.setEditable(false);
 
 		this.command = new JTextField(20);
 		this.executeButton = new JButton("Execute");
