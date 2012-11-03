@@ -148,7 +148,7 @@ public class LineImp implements Line {
 	
 	@Override
 	public int getIndex() {
-		if(this.isInSection()) {
+		if(this.isInTextIntro()) {
 			List<Line> list = ((TextIntroImp)this.getParent()).getText();
 			return list.indexOf(this);
 		}
