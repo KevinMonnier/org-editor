@@ -57,4 +57,8 @@ public interface Editor {
 	public void moveCursor(int down, int right);
 	
 	public String print();
+	
+	public void newLine();
+	
+	public void insertChar(char c);
 }

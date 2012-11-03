@@ -11,6 +11,7 @@ import model.low.document.Line;
 import model.low.document.Section;
 import model.low.document.Text;
 import model.low.document.TextIntro;
+import model.low.document.imp.LineImp;
 
 public class EditorImp implements Editor {
 
@@ -147,6 +148,21 @@ public class EditorImp implements Editor {
 		}
 
 		return printed.toString();
+	}
+
+	@Override
+	public void newLine() {
+		// TODO Auto-generated method stub
+		Text parent = this.getSelectedLine().getParent();
+		if(parent instanceof TextIntro) {
+			((TextIntro)parent).insertLine(new LineImp(parent), this.getSelectedLine());
+			this.getCursor().selectLineDown();
+		}
+	}
+
+	@Override
+	public void insertChar(char c) {
+		this.getSelectedLine().insertCharAt(this.getSelectedCharacterNb(), c);
 	}
 
 }
