@@ -51,4 +51,12 @@ public abstract class HasSubSectionImp implements HasSubSection {
 		this.subSections.remove(i);
 	}
 
+	@Override
+	public Section getLastDescendant(){
+		Section lastSubSection = this.getSubSection(this.getSubSectionNb());
+		if (lastSubSection.getSubSectionNb() > 0) {
+			return lastSubSection;
+		}
+		return lastSubSection.getLastDescendant();
+	}
 }

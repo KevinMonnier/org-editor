@@ -55,4 +55,6 @@ public interface HasSubSection {
 	public void removeSubSection(int i);
 	
 	public int getLineNb();
+
+	public Section getLastDescendant();
 }
