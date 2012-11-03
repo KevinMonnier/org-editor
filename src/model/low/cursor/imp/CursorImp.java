@@ -18,15 +18,22 @@ public class CursorImp extends VisitorImp implements Cursor {
 		return INSTANCE;
 	}
 	
+	@Override
 	public int getCurrentPosition() {
 		return currentPosition;
 	}
+	
+	@Override
 	public void setCurrentPosition(int newPosition) {
 		this.currentPosition = newPosition;
 	}
+	
+	@Override
 	public Line getCurrentLine() {
 		return currentLine;
 	}
+	
+	@Override
 	public void setCurrentLine(Line newLine) {
 		this.currentLine = newLine;
 	}
