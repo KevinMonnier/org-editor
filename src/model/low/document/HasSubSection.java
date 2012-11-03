@@ -36,7 +36,7 @@ public interface HasSubSection {
 	 * @param at
 	 *            the position of the section
 	 */
-	public void addSubSection(Section subSection, int at);
+	public void insertSubSection(Section subSection, int at);
 
 
 	/**
@@ -44,7 +44,7 @@ public interface HasSubSection {
 	 * @param subSection
 	 * @param after
 	 */
-	public void addSubSection(Section subSection, Section after);
+	public void insertSubSection(Section subSection, Section after);
 	
 	/**
 	 * Delete the subsection
