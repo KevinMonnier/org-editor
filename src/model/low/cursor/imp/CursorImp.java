@@ -2,7 +2,6 @@ package model.low.cursor.imp;
 
 import model.low.cursor.Cursor;
 import model.low.document.Line;
-import model.low.document.imp.DocumentException;
 
 public class CursorImp extends VisitorImp implements Cursor {
 
@@ -40,17 +39,17 @@ public class CursorImp extends VisitorImp implements Cursor {
 	@Override
 	public void movePositionLeft() {
 		if(getCurrentPosition()<=0){
-			throw new DocumentException("Impossible to move the cursor left" +
-					", the cursor is already at the position 0 of the current Line.");
+			this.selectLineUp();
+			this.setCurrentPosition(this.getCurrentLine().getPrec().length());
 		}
-		setCurrentPosition(getCurrentPosition() - 1);
+		this.setCurrentPosition(this.getCurrentPosition() - 1);
 	}
 
 	@Override
 	public void movePositionRight() {
 		if(getCurrentPosition()>=getCurrentLine().length()){
-			throw new DocumentException("Impossible to move the cursor right" +
-					", the cursor is positioned at the end of the current Line");
+			this.selectLineDown();
+			this.setCurrentPosition(0);
 		}
 		setCurrentPosition(getCurrentPosition() + 1);
 	}
