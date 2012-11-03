@@ -100,4 +100,9 @@ public class SectionImp extends HasSubSectionImp implements Section {
 		return s;
 	}
 
+	@Override
+	public State getState() {
+		return this.state;
+	}
+
 }
