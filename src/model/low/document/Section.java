@@ -54,4 +54,11 @@ public interface Section extends Element, HasSubSection, HasTextIntro {
 	 * @return true if the Section is Visible
 	 */
 	public boolean isVisible();
+	
+	
+	/**
+	 * Method to get the State of the section
+	 * @return the state of the section
+	 */
+	public State getState();
 }

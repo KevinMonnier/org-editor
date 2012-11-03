@@ -4,6 +4,7 @@ import model.high.command.Command;
 import model.high.editor.Editor;
 import model.low.buffer.Buffer;
 import model.low.document.Line;
+import model.low.document.imp.LineImp;
 
 public class CopyLine implements Command {
 	
@@ -28,7 +29,7 @@ public class CopyLine implements Command {
 			throw new CommandException("this function does not match " + str);
 		
 		Line line = this.editor.getSelectedLine();
-		buffer.push(line);
+		buffer.push(new LineImp(null, line));//insert a copy
 		
 	}
 
