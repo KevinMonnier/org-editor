@@ -143,7 +143,7 @@ public class EditorImp implements Editor {
 		}
 		if (section.getTitle().getLine().equals(selectedLine)) {
 			printed.append(new StringBuilder(section.getTitle().getLine()
-					.toString()).insert(this.getSelectedCharacterNb(), "[]"));
+					.toString()).insert(this.getSelectedCharacterNb(), "[]") + "\n");
 		} else
 			printed.append(section.getTitle().getLine().toString() + "\n");
 
@@ -160,7 +160,7 @@ public class EditorImp implements Editor {
 			}
 
 			for (int i = 0; i < section.getSubSectionNb(); i++) {
-				this.printSection(section.getSubSection(i), lvl + 1);
+				printed.append(this.printSection(section.getSubSection(i), lvl + 1));
 			}
 		} else {
 			printed.append("... \n");
