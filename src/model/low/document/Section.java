@@ -23,6 +23,8 @@ public interface Section extends Element, HasSubSection, HasTextIntro {
 	 */
 	public Section getNextSection();
 	
+	public Section getNextSiblingOrAncestor();
+	
 	/**
 	 * Method to get the precedent Section in the tree
 	 * @return the precedent Section

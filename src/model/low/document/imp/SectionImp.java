@@ -46,13 +46,27 @@ public class SectionImp extends HasSubSectionImp implements Section {
 	public Section getNextSection() {
 		if(this.getSubSectionNb() > 0){
 			return this.getSubSection(0);
-		} else if (this.getParent().getSubSectionNb() - 1 > this.getIndex()) {
+		} else 
+			if (this.getParent().getSubSectionNb() - 1 > this.getIndex()) {
 			return this.getParent().getSubSection(this.getIndex() + 1);
 		} else if(this.getParent() instanceof SectionImp) {
-			return ((SectionImp)this.getParent()).getNextSection();
+			return ((SectionImp)this.getParent()).getNextSiblingOrAncestor();
 		} else {
 			return null;
 		}	
+	}
+
+	@Override
+	public Section getNextSiblingOrAncestor() {
+		HasSubSection parent = this.getParent();
+		if(this.getIndex() == parent.getSubSectionNb() - 1) {
+			if(parent instanceof Section)
+				return ((Section)parent).getNextSiblingOrAncestor();
+		}
+		else {
+			return parent.getSubSection(this.getIndex() +1 );
+		}
+		return null;
 	}
 
 	@Override

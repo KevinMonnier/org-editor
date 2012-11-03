@@ -21,6 +21,14 @@ public class Controller {
 		this.view.getDocument().addKeyListener(new WriteKey(editor, view));
 		this.view.getCommand().setAction(new ExecuteCommand(view, editor));
 		
+		//[TEST]
+		this.editor.executeCommand("* section 1");
+		this.editor.executeCommand("** section 1.1");
+		this.editor.executeCommand("** section 1.2");
+		this.editor.executeCommand("* section 2");
+		//[/TEST]
+		
+		this.view.getDocument().setText(this.editor.print());
 	}
 	
 	private void addCommands() {
