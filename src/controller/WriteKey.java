@@ -41,4 +41,20 @@ public class WriteKey extends KeyAdapter {
 		view.getDocument().setText(this.editor.print());
 	}
 
+	@Override
+	public void keyPressed(KeyEvent e) {
+		if(e.getKeyCode() == KeyEvent.VK_UP)
+			this.editor.getCursor().selectLineUp();
+		if(e.getKeyCode() == KeyEvent.VK_DOWN)
+			this.editor.getCursor().selectLineDown();
+		if(e.getKeyCode() == KeyEvent.VK_LEFT)
+			this.editor.getCursor().movePositionLeft();
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+			this.editor.getCursor().movePositionRight();
+
+		view.getDocument().setText(this.editor.print());
+	}
+	
+	
+
 }

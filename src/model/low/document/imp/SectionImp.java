@@ -84,9 +84,12 @@ public class SectionImp extends HasSubSectionImp implements Section {
 	public Line getLastLine() {
 		if(this.isVisible()) {
 			if(this.getSubSectionNb() > 0) {
-				return this.getSubSection(this.getSubSectionNb()).getLastLine();
+				return this.getSubSection(this.getSubSectionNb() - 1 ).getLastLine();
 			}
-			return this.getTextIntro().getLine(this.getTextIntro().getLineNb());
+			if(this.getTextIntro().getLineNb() > 0)
+				return this.getTextIntro().getLine(this.getTextIntro().getLineNb() - 1 );
+			else 
+				return this.getTitle().getLine();
 		}
 		return this.getTitle().getLine();
 	}

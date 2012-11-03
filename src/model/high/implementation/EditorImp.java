@@ -143,11 +143,12 @@ public class EditorImp implements Editor {
 		}
 		if (section.getTitle().getLine().equals(selectedLine)) {
 			printed.append(new StringBuilder(section.getTitle().getLine()
-					.toString()).insert(this.getSelectedCharacterNb(), "[]") + "\n");
+					.toString()).insert(this.getSelectedCharacterNb(), "[]"));
 		} else
-			printed.append(section.getTitle().getLine().toString() + "\n");
+			printed.append(section.getTitle().getLine().toString());
 
 		if (section.isVisible()) {
+			printed.append("\n");
 			TextIntro intro = section.getTextIntro();
 			for (int i = 0; i < intro.getLineNb(); i++) {
 				if (intro.getLine(i).equals(selectedLine)) {
