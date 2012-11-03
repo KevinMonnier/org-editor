@@ -2,6 +2,7 @@ package model.low.document.imp;
 
 import java.util.List;
 
+import model.low.document.HasSubSection;
 import model.low.document.Line;
 import model.low.document.Section;
 import model.low.document.Text;
@@ -116,6 +117,10 @@ public class LineImp implements Line {
 
 	@Override
 	public Line getPrecFromTitle() {
+		Section containingSection = ((TitleImp) this.getParent()).getParent();
+		if(containingSection.getIndex() >= 1) {
+			return containingSection.getParent().getSubSection(containingSection.getIndex() -1).getLastLine();
+		}
 		if (((TitleImp) this.getParent()).getParent().getParent() instanceof DocumentImp) {
 			return ((DocumentImp) ((TitleImp) this.getParent()).getParent()
 					.getParent()).getTextIntro().getLastLine();

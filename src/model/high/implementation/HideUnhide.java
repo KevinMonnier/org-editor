@@ -26,6 +26,7 @@ public class HideUnhide implements Command {
 		HasSubSection selectedItem = editor.getSelectedItem();
 		if(selectedItem instanceof Section) {
 			((Section) selectedItem).getState().showHide((Section) selectedItem);
+			this.editor.getCursor().setCurrentLine(((Section) selectedItem).getFirstLine());
 		}
 	}
 
