@@ -47,7 +47,7 @@ public class AddSection implements Command {
 					(Section) addAfter);
 		}
 		this.editor.getCursor().selectLineDown();
-		this.editor.getCursor().selectLineDown();
+		//this.editor.getCursor().selectLineDown();
 	}
 
 	private int getItemLevel(HasSubSection item) {

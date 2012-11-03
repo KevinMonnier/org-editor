@@ -24,6 +24,7 @@ public class ExecuteCommand extends AbstractAction {
 		// TODO Auto-generated method stub
 		String command = view.getCommand().getText();
 		view.getCommand().setText("");
+		this.view.getCommand().setVisible(false);
 		command = command.substring(1);
 		editor.executeCommand(command);
 		view.getDocument().setText(this.editor.print());

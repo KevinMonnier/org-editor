@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.low.document.Line;
 import model.low.document.Text;
+import model.low.document.Title;
 
 public class LineImp implements Line {
 
@@ -98,12 +99,13 @@ public class LineImp implements Line {
 	}
 	
 	@Override
-	public Line getNextFromTitle() {	
-		if (((TitleImp)this.getParent()).getParent().isVisible()) {
-			return ((TitleImp)this.getParent()).getParent().getTextIntro().getFirstLine();
+	public Line getNextFromTitle() {
+		Title title =  (Title)this.getParent();
+		if (title.getParent().isVisible() && title.getParent().getTextIntro().getLineNb() > 0) {
+			return title.getParent().getTextIntro().getFirstLine();
 		} else {
-			if(((TitleImp)this.getParent()).getParent().getNextSection() != null) {
-				return ((TitleImp)this.getParent()).getParent().getNextSection().getFirstLine();
+			if(title.getParent().getNextSection() != null) {
+				return title.getParent().getNextSection().getFirstLine();
 			}
 			return this;
 		}

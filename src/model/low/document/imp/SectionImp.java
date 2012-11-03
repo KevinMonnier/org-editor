@@ -16,6 +16,7 @@ public class SectionImp extends HasSubSectionImp implements Section {
 	
 	public SectionImp(Title title, HasSubSection parent) {
 		this.title = title;
+		this.title.setParent(this);
 		this.parent = parent;
 		this.text = new TextIntroImp(this);
 		this.setState(new Visible());
@@ -43,7 +44,7 @@ public class SectionImp extends HasSubSectionImp implements Section {
 
 	@Override
 	public Section getNextSection() {
-		if(this.getSubSectionNb() < 0){
+		if(this.getSubSectionNb() > 0){
 			return this.getSubSection(0);
 		} else if (this.getParent().getSubSectionNb() > this.getIndex()) {
 			return this.getParent().getSubSection(this.getIndex() + 1);

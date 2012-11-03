@@ -17,7 +17,7 @@ public class Controller {
 		this.view = new EditorView();
 		this.editor.addCommand(new AddSection(this.editor));
 		this.view.getDocument().addKeyListener(new WriteKey(editor, view));
-		this.view.getExecuteButton().setAction(new ExecuteCommand(view, editor));
+		this.view.getCommand().setAction(new ExecuteCommand(view, editor));
 		
 	}
 }
