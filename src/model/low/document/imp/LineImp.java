@@ -183,11 +183,6 @@ public class LineImp implements Line {
 	}
 	
 	@Override
-	public void removeContent() {
-		this.setContent(null);
-	}
-	
-	@Override
 	public void deleteContent() {
 		this.getContent().delete(0, this.length());
 	}

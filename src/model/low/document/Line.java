@@ -131,11 +131,6 @@ public interface Line extends Element{
 	public void replaceContent(StringBuilder newContent);
 	
 	/**
-	 * Sets the content of the Line to null.
-	 */
-	public void removeContent();
-	
-	/**
 	 * Sets the content of the Line to an empty StringBuilder.
 	 */
 	public void deleteContent();
