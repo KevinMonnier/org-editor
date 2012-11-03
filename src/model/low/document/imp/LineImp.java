@@ -105,38 +105,41 @@ public class LineImp implements Line {
 	@Override
 	public Line getNextFromTextIntro() {
 		List<Line> list = ((TextIntroImp)this.getParent()).getText();
-		int lineIndex = 0;
-		for(int i = 0 ; i < list.size() ; i ++) {
-			if(list.get(i).equals(this)){
-				lineIndex = i;
-			}
-		}
-		if (lineIndex >= list.size()) {
+		if (this.getIndex() >= list.size()) {
 			if(this.isInDocument()) {
 				return ((DocumentImp)((TextIntroImp)this.getParent()).getParent()).getSubSection(0).getFirstLine();
 			}
 			//Penser à traiter le cas où il n'y a pas de section suivante
 			return ((SectionImp)((TextIntroImp)this.getParent()).getParent()).getNext().getFirstLine();
 		}
-		return list.get(lineIndex + 1);
+		return list.get(this.getIndex() + 1);
 	}
 
 	@Override
 	public Line getPrecFromTextIntro() {
-		List<Line> list = ((TextIntroImp)this.getParent()).getText();
-		int lineIndex = 0;
-		for(int i = 0 ; i < list.size() ; i ++) {
-			if(list.get(i).equals(this)){
-				lineIndex = i;
-			}
-		}
-		if(lineIndex == 0) {
+		if(this.getIndex() == 0) {
 			if(this.isInDocument()) {
 				return this;
 			}
 			return ((SectionImp)((TextIntroImp)this.getParent()).getParent()).getTitle().getLine();
-		}		
-		return list.get(lineIndex - 1);
+		}
+		List<Line> list = ((TextIntroImp)this.getParent()).getText();
+		return list.get(this.getIndex() - 1);
+	}
+	
+	@Override
+	public int getIndex() {
+		if(this.isInSection()) {
+			List<Line> list = ((TextIntroImp)this.getParent()).getText();
+			int lineIndex = 0;
+			for(int i = 0 ; i < list.size() ; i ++) {
+				if(list.get(i).equals(this)){
+					lineIndex = i;
+				}
+			}
+			return lineIndex;
+		}
+		return 0;
 	}
 	
 	

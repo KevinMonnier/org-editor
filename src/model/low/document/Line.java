@@ -83,6 +83,13 @@ public interface Line extends Element{
 	 */
 	public Line getPrecFromTextIntro();
 	
+	/**
+	 * Method to get the index of the Line in List of TextIntroImp.
+	 * Returns 0 if the line is in a Title.
+	 * @return the index of the Line
+	 */
+	public int getIndex();
+
 	
 //	Methods to manipulate the content of the Line
 	
