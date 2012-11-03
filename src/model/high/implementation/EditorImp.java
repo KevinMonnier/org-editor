@@ -174,6 +174,7 @@ public class EditorImp implements Editor {
 	@Override
 	public void insertChar(char c) {
 		this.getSelectedLine().insertCharAt(this.getSelectedCharacterNb(), c);
+		this.getCursor().movePositionRight();
 	}
 
 }
