@@ -33,6 +33,8 @@ public class WriteKey extends KeyAdapter {
 		case '\n':
 			this.editor.newLine();
 			break;
+		default:
+			this.editor.insertChar(e.getKeyChar());	
 			
 		}
 		view.getDocument().setText(this.editor.print());

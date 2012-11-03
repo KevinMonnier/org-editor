@@ -1,12 +1,13 @@
 package model.low.document.imp;
 
+import java.util.LinkedList;
 import java.util.List;
 import model.low.document.HasSubSection;
 import model.low.document.Section;
 
 public abstract class HasSubSectionImp implements HasSubSection {
 
-	private List<Section> subSections;
+	private List<Section> subSections = new LinkedList<Section>();
 
 	@Override
 	public List<Section> getSubSections() {
