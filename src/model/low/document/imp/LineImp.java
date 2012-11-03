@@ -142,7 +142,7 @@ public class LineImp implements Line {
 			if(((TextIntroImp)this.getParent()).getParent() instanceof DocumentImp) {
 				return this;
 			} else {
-				((SectionImp)((TextIntroImp)this.getParent()).getParent()).getTitle().getLine();
+				return ((SectionImp)((TextIntroImp)this.getParent()).getParent()).getTitle().getLine();
 			}
 		}
 		return ((TextIntroImp)this.getParent()).getLine(this.getIndex()-1);

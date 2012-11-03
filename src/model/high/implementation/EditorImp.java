@@ -176,8 +176,12 @@ public class EditorImp implements Editor {
 		if (parent instanceof TextIntro) {
 			((TextIntro) parent).insertLine(new LineImp(parent),
 					this.getSelectedLine());
-			this.getCursor().selectLineDown();
 		}
+		else if(parent instanceof Title) {
+			TextIntro text = ((Title)parent).getParent().getTextIntro();
+			text.insertLine(new LineImp(text), 0);
+		}
+			this.getCursor().selectLineDown();
 	}
 
 	@Override
