@@ -102,8 +102,8 @@ public class LineImp implements Line {
 		if (((TitleImp)this.getParent()).getParent().isVisible()) {
 			return ((TitleImp)this.getParent()).getParent().getTextIntro().getFirstLine();
 		} else {
-			if(((TitleImp)this.getParent()).getParent().getNext() != null) {
-				return ((TitleImp)this.getParent()).getParent().getNext().getFirstLine();
+			if(((TitleImp)this.getParent()).getParent().getNextSection() != null) {
+				return ((TitleImp)this.getParent()).getParent().getNextSection().getFirstLine();
 			}
 			return this;
 		}
@@ -114,7 +114,7 @@ public class LineImp implements Line {
 		if(((TitleImp)this.getParent()).getParent().getParent() instanceof DocumentImp) {
 			return ((DocumentImp)((TitleImp)this.getParent()).getParent().getParent()).getTextIntro().getLastLine();
 		}else {
-			return ((TitleImp)this.getParent()).getParent().getPrec().getLastLine();
+			return ((TitleImp)this.getParent()).getParent().getPrecSection().getLastLine();
 		}
 	}
 
@@ -125,8 +125,8 @@ public class LineImp implements Line {
 		} else {
 			if (((TextIntroImp)this.getParent()).getParent() instanceof DocumentImp) {
 				return ((DocumentImp)((TextIntroImp)this.getParent()).getParent()).getSubSection(0).getTitle().getLine();
-			} else if (((SectionImp)((TextIntroImp)this.getParent()).getParent()).getNext() != null) {
-				return ((SectionImp)((TextIntroImp)this.getParent()).getParent()).getNext().getFirstLine();
+			} else if (((SectionImp)((TextIntroImp)this.getParent()).getParent()).getNextSection() != null) {
+				return ((SectionImp)((TextIntroImp)this.getParent()).getParent()).getNextSection().getFirstLine();
 			} else {
 				return this;
 			}	

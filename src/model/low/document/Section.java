@@ -21,13 +21,19 @@ public interface Section extends Element, HasSubSection, HasTextIntro {
 	 * Method to get the next Section in the tree
 	 * @return the next section
 	 */
-	public Section getNext();
+	public Section getNextSection();
 	
 	/**
 	 * Method to get the precedent Section in the tree
 	 * @return the precedent Section
 	 */
-	public Section getPrec();
+	public Section getPrecSection();
+	
+	/**
+	 * Method to get the index of the Section in List of TasSubSection.
+	 * @return the index of the Section
+	 */
+	public int getIndex();
 	
 	/**
 	 * Method to get the First Line of this Section.
