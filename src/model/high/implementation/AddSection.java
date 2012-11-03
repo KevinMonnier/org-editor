@@ -27,13 +27,23 @@ public class AddSection implements Command {
 		int selectedItemLevel = this
 				.getItemLevel(this.editor.getSelectedItem());
 		int newSectionLvl = 0;
-		for (newSectionLvl = 0; str.charAt(newSectionLvl) == '*'; newSectionLvl++);
-		
-		StringBuilder title = new StringBuilder(str.subSequence(newSectionLvl + 1, str.length()));
+		for (newSectionLvl = 0; str.charAt(newSectionLvl) == '*'; newSectionLvl++)
+			;
+
+		StringBuilder title = new StringBuilder(str.subSequence(
+				newSectionLvl + 1, str.length()));
 		if (newSectionLvl > selectedItemLevel) {
 			this.editor.getSelectedItem().addSubSection(
 					new SectionImp(new TitleImp(title), this.editor
 							.getSelectedItem())); // TODO injection here
+		} else if (newSectionLvl < selectedItemLevel) {
+			int lvlDiff = selectedItemLevel - newSectionLvl;
+			Section parent = (Section)((Section) this.editor.getSelectedItem()).getParent();
+			for (int i = 1; i < lvlDiff; i++)
+				parent = (Section) parent.getParent();
+			parent.getParent().insertSubSection(
+					new SectionImp(new TitleImp(title),
+							this.editor.getSelectedItem()), parent);
 		} else {
 			HasSubSection addAfter = this.editor.getSelectedItem();
 			int lvlDiff = newSectionLvl - selectedItemLevel;
@@ -43,16 +53,15 @@ public class AddSection implements Command {
 			}
 			HasSubSection parent = ((Section) addAfter).getParent();
 			parent.insertSubSection(new SectionImp(new TitleImp(title),
-					this.editor.getSelectedItem()),
-					(Section) addAfter);
+					this.editor.getSelectedItem()), (Section) addAfter);
 		}
 		this.editor.getCursor().selectLineDown();
-		//this.editor.getCursor().selectLineDown();
+		// this.editor.getCursor().selectLineDown();
 	}
 
 	private int getItemLevel(HasSubSection item) {
 		return item instanceof Document ? 0 : 1 + getItemLevel(((Section) item)
 				.getParent());
 	}
-	
+
 }

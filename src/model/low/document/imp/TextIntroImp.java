@@ -9,30 +9,30 @@ import model.low.document.TextIntro;
 
 public class TextIntroImp implements TextIntro {
 
-//	Attributes
-	
+	// Attributes
+
 	private List<Line> text;
 	private HasTextIntro parent;
 
-//	Constructors	
-	
+	// Constructors
+
 	public TextIntroImp(HasTextIntro parent) {
 		this.text = new ArrayList<Line>();
 		this.parent = parent;
 	}
 
-//	Accessors		
-	
+	// Accessors
+
 	@Override
 	public List<Line> getText() {
 		return text;
 	}
-	
+
 	@Override
 	public Line getLine(int i) {
 		return text.get(i);
 	}
-	
+
 	@Override
 	public Line getFirstLine() {
 		return this.getLine(0);
@@ -40,9 +40,9 @@ public class TextIntroImp implements TextIntro {
 
 	@Override
 	public Line getLastLine() {
-		return this.getLine(this.getLineNb());
+		return this.getLine(this.getLineNb() - 1);
 	}
-	
+
 	@Override
 	public HasTextIntro getParent() {
 		return parent;
@@ -53,22 +53,22 @@ public class TextIntroImp implements TextIntro {
 		this.parent = parent;
 	}
 
-//	Methods	
-	
+	// Methods
+
 	@Override
 	public void addLine(Line line) {
 		text.add(new LineImp(this, line));
 	}
-	
+
 	@Override
 	public void insertLine(Line line, int at) {
 		this.text.add(at, line);
-		
+
 	}
 
 	@Override
 	public void insertLine(Line line, Line after) {
-		this.text.add(this.text.indexOf(after)+1, line);
+		this.text.add(this.text.indexOf(after) + 1, line);
 	}
 
 	@Override
@@ -81,10 +81,9 @@ public class TextIntroImp implements TextIntro {
 		return text.size();
 	}
 
-	
 	public String toString() {
 		String s = "";
-		for(Line l : getText()) {
+		for (Line l : getText()) {
 			s += l.toString() + "\n";
 		}
 		return s;
