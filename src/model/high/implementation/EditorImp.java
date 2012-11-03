@@ -33,18 +33,13 @@ public class EditorImp implements Editor {
 	}
 
 	@Override
-	public Text getSelectedText() {
-		return this.selectedText;
-	}
-
-	@Override
 	public int getSelectedLineNb() {
 		return this.selectedLine;
 	}
 
 	@Override
 	public int getSelectedCharacterNb() {
-		return this.selectedCol;
+		return this.cursor.getCurrentPosition();
 	}
 
 	@Override
@@ -98,8 +93,7 @@ public class EditorImp implements Editor {
 
 	@Override
 	public Line getSelectedLine() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.cursor.getCurrentLine();
 	}
 
 	@Override

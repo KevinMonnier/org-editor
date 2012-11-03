@@ -20,10 +20,7 @@ public interface Editor {
 	 */
 	public HasSubSection getSelectedItem();
 	
-	/**
-	 * @return the Text where the cursor is.
-	 */
-	public Text getSelectedText();
+	
 	
 	/**
 	 * @return The line number where the cursor is in the selected Text.
