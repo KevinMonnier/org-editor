@@ -34,12 +34,12 @@ public abstract class HasSubSectionImp implements HasSubSection {
 	}
 
 	@Override
-	public void addSubSection(Section subSection, int at) {
+	public void insertSubSection(Section subSection, int at) {
 		this.subSections.add(at, subSection);
 	}
 
 	@Override
-	public void addSubSection(Section subSection, Section after) {
+	public void insertSubSection(Section subSection, Section after) {
 		this.subSections.add(this.subSections.indexOf(after), subSection);
 	}
 	

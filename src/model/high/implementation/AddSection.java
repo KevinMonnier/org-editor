@@ -42,7 +42,7 @@ public class AddSection implements Command {
 				addAfter = ((Section) addAfter).getParent();
 			}
 			HasSubSection parent = ((Section) addAfter).getParent();
-			parent.addSubSection(new SectionImp(new TitleImp(title),
+			parent.insertSubSection(new SectionImp(new TitleImp(title),
 					this.editor.getSelectedItem(), new TextIntroImp()),
 					(Section) addAfter);
 		}
