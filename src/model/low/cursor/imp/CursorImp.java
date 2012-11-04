@@ -46,8 +46,10 @@ public class CursorImp extends VisitorImp implements Cursor {
 	@Override
 	public void movePositionLeft() {
 		if(getCurrentPosition()<=0){
-			this.selectLineUp();
-			this.setCurrentPosition(this.getCurrentLine().length());
+			if(!this.getDocument().isFirstLineOfTheDocument(this.getCurrentLine())) {
+				this.selectLineUp();
+				this.setCurrentPosition(this.getCurrentLine().length());
+			}
 		}
 		else 
 			this.setCurrentPosition(this.getCurrentPosition() - 1);
@@ -56,8 +58,10 @@ public class CursorImp extends VisitorImp implements Cursor {
 	@Override
 	public void movePositionRight() {
 		if(getCurrentPosition()>=getCurrentLine().length()){
-			this.selectLineDown();
-			this.setCurrentPosition(0);
+			if(!this.getDocument().isLastLineOfTheDocument(this.getCurrentLine())) {
+				this.selectLineDown();
+				this.setCurrentPosition(0);
+			}
 		}
 		else
 			setCurrentPosition(getCurrentPosition() + 1);

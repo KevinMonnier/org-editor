@@ -2,6 +2,7 @@ package model.low.document.imp;
 
 import model.low.cursor.Visitor;
 import model.low.document.Document;
+import model.low.document.Line;
 import model.low.document.Section;
 import model.low.document.TextIntro;
 
@@ -46,6 +47,21 @@ public class DocumentImp extends HasSubSectionImp implements Document{
 			lineNb += this.getSubSection(i).getLineNb();
 		}
 		return lineNb;
+	}
+
+	@Override
+	public boolean isFirstLineOfTheDocument(Line line) {
+		return line.equals(this.getTextIntro().getFirstLine());
+	}
+
+	@Override
+	public boolean isLastLineOfTheDocument(Line line) {
+		if(this.getSubSectionNb() > 0) {
+			return line.equals(this.getSubSection(this.getSubSectionNb() - 1).getLastDescendant().getLastLine());
+		}
+		else {
+			return line.equals(this.getTextIntro().getLastLine());
+		}
 	}
 
 	
