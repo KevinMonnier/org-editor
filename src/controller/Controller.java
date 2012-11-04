@@ -10,12 +10,14 @@ import model.high.implementation.HideUnhide;
 import model.high.implementation.LoadFile;
 import model.high.implementation.MoveCursor;
 import model.high.implementation.Paste;
+import model.high.implementation.Save;
 import model.high.implementation.UpgradeRecursive;
 import model.low.buffer.Buffer;
 import model.low.buffer.imp.BufferImp;
 import model.low.cursor.imp.CursorImp;
 import model.low.document.imp.DocumentImp;
 import model.low.document.imp.DocumentLoaderImp;
+import model.low.document.imp.DocumentWriterImp;
 import view.EditorView;
 
 public class Controller {
@@ -56,5 +58,6 @@ public class Controller {
 		this.editor.addCommand(new CopyLine(this.editor, this.buffer));
 		this.editor.addCommand(new Paste(this.editor, this.buffer));
 		this.editor.addCommand(new LoadFile(this.editor, new DocumentLoaderImp()));
+		this.editor.addCommand(new Save(this.editor, new DocumentWriterImp()));
 	}
 }

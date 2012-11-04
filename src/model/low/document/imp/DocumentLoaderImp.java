@@ -29,7 +29,7 @@ public class DocumentLoaderImp implements DocumentLoader {
 				
 				while((line = readSection(document, line, reader, document))!=null && line.startsWith("*"));
 				
-				
+				reader.close();
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
