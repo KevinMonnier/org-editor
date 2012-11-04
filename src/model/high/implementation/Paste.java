@@ -3,11 +3,14 @@ package model.high.implementation;
 import model.high.command.Command;
 import model.high.editor.Editor;
 import model.low.buffer.Buffer;
+import model.low.document.Document;
+import model.low.document.HasSubSection;
 import model.low.document.Line;
 import model.low.document.Section;
 import model.low.document.TextIntro;
 import model.low.document.Title;
 import model.low.document.imp.LineImp;
+import model.low.document.imp.SectionImp;
 
 public class Paste implements Command {
 
@@ -30,8 +33,19 @@ public class Paste implements Command {
 		if(!this.buffer.empty()) {
 			if (this.buffer.peek() instanceof Line)
 				this.copyLine((Line) this.buffer.peek());
-			//TODO section
+			else if(this.buffer.peek() instanceof Section)
+				this.copySection((Section) this.buffer.peek());
 		}	
+	}
+
+	private void copySection(Section peek) {
+		// TODO Auto-generated method stub
+		HasSubSection parent =  this.editor.getSelectedItem();
+		
+		if(parent instanceof Document)
+			parent.addSubSection(new SectionImp(peek, parent));
+		else
+			((Section)parent).getParent().insertSubSection(peek, (Section)parent);
 	}
 
 	private void copyLine(Line l) {
