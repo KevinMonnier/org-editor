@@ -10,6 +10,8 @@ import view.EditorView;
 
 public class ExecuteCommand extends AbstractAction {
 
+	private static final long serialVersionUID = 3461234318923481245L;
+
 	private EditorView view;
 	private Editor editor;
 

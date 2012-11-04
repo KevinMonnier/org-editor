@@ -1,13 +1,10 @@
 package controller;
 
-import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-import javax.swing.AbstractAction;
-import view.EditorView;
-
 import model.high.editor.Editor;
+import view.EditorView;
 
 public class WriteKey extends KeyAdapter {
 
@@ -60,11 +57,14 @@ public class WriteKey extends KeyAdapter {
 			this.editor.getCursor().movePositionRight();
 			break;
 		case KeyEvent.VK_DELETE:
-			this.editor.getSelectedLine().deleteCharAt(this.editor.getSelectedCharacterNb());
+			if(this.editor.getCursor().getCurrentPosition() < this.editor.getCursor().getCurrentLine().length())
+				this.editor.getSelectedLine().deleteCharAt(this.editor.getSelectedCharacterNb());
 			break;
 		case KeyEvent.VK_BACK_SPACE:
-			this.editor.getSelectedLine().deleteCharAt(this.editor.getSelectedCharacterNb()-1);
-			this.editor.getCursor().movePositionLeft();
+			if(this.editor.getCursor().getCurrentPosition() > 0) {
+				this.editor.getSelectedLine().deleteCharAt(this.editor.getSelectedCharacterNb()-1);
+				this.editor.getCursor().movePositionLeft();
+			}	
 			break;
 		}
 

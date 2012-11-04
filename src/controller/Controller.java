@@ -61,7 +61,7 @@ public class Controller {
 		this.editor.addCommand(new Cut(this.editor, this.buffer));
 		this.editor.addCommand(new Paste(this.editor, this.buffer));
 		this.editor.addCommand(new DeleteFromBuffer(this.buffer));
-		this.editor.addCommand(new LoadFile(this.editor, new DocumentLoaderImp()));
+		this.editor.addCommand(new LoadFile(new DocumentLoaderImp()));
 		this.editor.addCommand(new Save(this.editor, new DocumentWriterImp()));
 	}
 }

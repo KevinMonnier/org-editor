@@ -1,20 +1,17 @@
 package model.high.implementation;
 
 import model.high.command.Command;
-import model.high.editor.Editor;
 import model.low.document.DocumentLoader;
 
 public class LoadFile implements Command {
 	
 	
-	private Editor editor;
 	private DocumentLoader documentLoader;
 	
 	
 	
-	public LoadFile(Editor editor, DocumentLoader documentLoader) {
+	public LoadFile(DocumentLoader documentLoader) {
 		super();
-		this.editor = editor;
 		this.documentLoader = documentLoader;
 	}
 

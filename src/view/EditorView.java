@@ -7,7 +7,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class EditorView extends JFrame {
-
+	private static final long serialVersionUID = -8572838182763721863L;
+	
 	JTextField command;
 	JTextArea document;
 

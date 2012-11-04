@@ -20,7 +20,6 @@ public class EditorImp implements Editor {
 
 	private Document document;
 	private ArrayList<Command> commands;
-	private HasSubSection selectedItem;
 	private Cursor cursor;
 
 	public EditorImp(Cursor cursor) {
