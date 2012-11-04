@@ -2,6 +2,7 @@ package model.low.document.imp;
 
 import java.util.List;
 
+import model.low.document.Document;
 import model.low.document.Line;
 import model.low.document.Section;
 import model.low.document.Text;
@@ -153,8 +154,12 @@ public class LineImp implements Line {
 					.getLine(this.getIndex() + 1);
 		} else {
 			if (((TextIntroImp) this.getParent()).getParent() instanceof DocumentImp) {
-				return ((DocumentImp) ((TextIntroImp) this.getParent())
-						.getParent()).getSubSection(0).getTitle().getLine();
+				Document doc = ((Document) ((TextIntroImp) this.getParent())
+						.getParent());
+				if(doc.getSubSectionNb() > 0)
+					return doc.getSubSection(0).getTitle().getLine();
+				else return doc.getTextIntro().getLastLine();
+				
 			} else if (((SectionImp) ((TextIntroImp) this.getParent())
 					.getParent()).getNextSection() != null) {
 				return ((SectionImp) ((TextIntroImp) this.getParent())
