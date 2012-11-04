@@ -1,19 +1,19 @@
 package controller;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import javax.swing.AbstractAction;
 import view.EditorView;
 
 import model.high.editor.Editor;
-import model.low.document.Text;
-import model.low.document.TextIntro;
-import model.low.document.imp.LineImp;
 
 public class WriteKey extends KeyAdapter {
 
 	private Editor editor;
 	private EditorView view;
+	
 
 	public WriteKey(Editor editor, EditorView view) {
 		super();
@@ -44,7 +44,8 @@ public class WriteKey extends KeyAdapter {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		
+
+        
 		switch(e.getKeyCode()) {
 		case KeyEvent.VK_UP:
 			this.editor.getCursor().selectLineUp();
@@ -69,6 +70,7 @@ public class WriteKey extends KeyAdapter {
 
 		view.getDocument().setText(this.editor.print());
 	}
+
 	
 	
 

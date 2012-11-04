@@ -8,7 +8,6 @@ import model.low.cursor.Cursor;
 import model.low.cursor.imp.CursorImp;
 import model.low.document.Document;
 import model.low.document.HasSubSection;
-import model.low.document.HasTextIntro;
 import model.low.document.Line;
 import model.low.document.Section;
 import model.low.document.Text;

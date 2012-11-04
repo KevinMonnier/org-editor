@@ -6,7 +6,6 @@ import model.low.document.Document;
 import model.low.document.HasSubSection;
 import model.low.document.Section;
 import model.low.document.imp.SectionImp;
-import model.low.document.imp.TextIntroImp;
 import model.low.document.imp.TitleImp;
 
 public class AddSection implements Command {
