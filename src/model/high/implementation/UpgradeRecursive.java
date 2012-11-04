@@ -36,9 +36,9 @@ public class UpgradeRecursive implements Command {
 				++index;
 
 			
-			//add the following sections to the subesctions of the upgraded section
+			//add the following sections to the subsections of the upgraded section
 			List<Section> sectionToAdd = new ArrayList<Section>();
-			while (parent.getSubSectionNb() >= index + 1) {
+			while (parent.getSubSectionNb() > index + 1) {
 				sectionToAdd.add(parent.getSubSection(index + 1));
 				parent.removeSubSection(index + 1);
 			}
@@ -51,11 +51,11 @@ public class UpgradeRecursive implements Command {
 
 			// get index of parent
 			int indexParent = 0;
-			while (!parent.getParent().getSubSection(indexParent)
+			while (indexParent < parent.getParent().getSubSectionNb() && !parent.getParent().getSubSection(indexParent)
 					.equals(section))
 				++indexParent;
 
-			parent.getParent().insertSubSection(section, indexParent + 1);
+			parent.getParent().insertSubSection(section, indexParent);
 		}
 	}
 
