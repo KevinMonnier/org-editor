@@ -145,6 +145,7 @@ public class EditorImp implements Editor {
 			printed.append("*");
 		}
 		if (section.getTitle().getLine().equals(selectedLine)) {
+			System.out.println(this.getSelectedCharacterNb());//TODO debug
 			printed.append(new StringBuilder(section.getTitle().getLine()
 					.toString()).insert(this.getSelectedCharacterNb(), "[")
 					.insert(this.getSelectedLine().length() == this

@@ -2,6 +2,7 @@ package controller;
 
 import model.high.editor.Editor;
 import model.high.implementation.AddSection;
+import model.high.implementation.Degrade;
 import model.high.implementation.DegradeRecursive;
 import model.high.implementation.EditorImp;
 import model.high.implementation.HideUnhide;
@@ -43,5 +44,6 @@ public class Controller {
 		this.editor.addCommand(new HideUnhide(this.editor));
 		this.editor.addCommand(new DegradeRecursive(this.editor));
 		this.editor.addCommand(new UpgradeRecursive(this.editor));
+		this.editor.addCommand(new Degrade(this.editor));
 	}
 }
