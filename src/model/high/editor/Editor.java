@@ -25,6 +25,9 @@ public interface Editor {
 	 */
 	public HasSubSection getSelectedItem();
 
+	/**
+	 * @return the selected line in the document
+	 */
 	public Line getSelectedLine();
 
 	/**
@@ -62,6 +65,15 @@ public interface Editor {
 	 */
 	public char getCommandChar();
 
+	/**
+	 * move the cursor in the document. Given value can be positive or negative
+	 * so it is possible to go to the left by setting a negative alue for right.
+	 * 
+	 * @param down
+	 *            the number of line changes downward.
+	 * @param right
+	 *            the number of column changes to the right.
+	 */
 	public void moveCursor(int down, int right);
 
 	/**
