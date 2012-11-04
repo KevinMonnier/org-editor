@@ -145,7 +145,6 @@ public class EditorImp implements Editor {
 			printed.append("*");
 		}
 		if (section.getTitle().getLine().equals(selectedLine)) {
-			System.out.println(this.getSelectedCharacterNb());//TODO debug
 			printed.append(new StringBuilder(section.getTitle().getLine()
 					.toString()).insert(this.getSelectedCharacterNb(), "[")
 					.insert(this.getSelectedLine().length() == this
@@ -181,7 +180,6 @@ public class EditorImp implements Editor {
 
 	@Override
 	public void newLine() {
-		// TODO Auto-generated method stub
 		Text parent = this.getSelectedLine().getParent();
 		if (parent instanceof TextIntro) {
 			((TextIntro) parent).insertLine(new LineImp(parent),
