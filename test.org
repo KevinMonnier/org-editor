@@ -1,0 +1,8 @@
+INTRO DU DOC
+*LVL 1
+**LVL 1.1
+**LVL 1.2
+texte de lvl 1.2
+***LVL 1.2.1
+*LVL 2
+**LVL 2.1
