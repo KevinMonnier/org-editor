@@ -20,6 +20,14 @@ public class TextIntroImp implements TextIntro {
 		this.text = new ArrayList<Line>();
 		this.parent = parent;
 	}
+	
+	public TextIntroImp(TextIntro textIntro, HasTextIntro parent) {
+		this.text = new ArrayList<Line>();
+		this.parent = parent;
+		for(Line line : textIntro.getText()) {
+			this.text.add(new LineImp(this, line));
+		}
+	}
 
 	// Accessors
 

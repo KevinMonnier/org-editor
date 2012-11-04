@@ -22,6 +22,18 @@ public class SectionImp extends HasSubSectionImp implements Section {
 		this.setState(new Visible());
 	}
 	
+	public SectionImp(Section section, HasSubSection parent) {
+		this.title = new TitleImp(section.getTitle().getLine().getContent(), this);
+		this.text = new TextIntroImp(section.getTextIntro(), this);
+		this.parent = parent;
+		this.setState(new Visible());
+		if(section.getSubSectionNb() > 0) {
+			for(Section subSection : section.getSubSections()) {
+				this.addSubSection(new SectionImp(subSection,this));
+			}
+		}
+	}
+	
 	@Override
 	public Title getTitle() {
 		return title;
