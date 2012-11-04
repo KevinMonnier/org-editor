@@ -48,5 +48,11 @@ public class DocumentImp extends HasSubSectionImp implements Document{
 		return lineNb;
 	}
 
+	@Override
+	public void clear() {
+		this.textIntro = new TextIntroImp(this);
+		this.getSubSections().clear();
+	}
+
 	
 }
