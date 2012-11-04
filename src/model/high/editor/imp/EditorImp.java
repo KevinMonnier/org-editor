@@ -1,8 +1,10 @@
-package model.high.implementation;
+package model.high.editor.imp;
 
 import java.util.ArrayList;
 
 import model.high.command.Command;
+import model.high.command.imp.CommandNotFoundException;
+import model.high.command.imp.EditCommands;
 import model.high.editor.Editor;
 import model.low.cursor.Cursor;
 import model.low.cursor.imp.CursorImp;

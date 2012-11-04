@@ -1,8 +1,6 @@
-package model.high.implementation;
+package model.high.command.imp;
 
 public class CommandException extends RuntimeException {
-
-	private static final long serialVersionUID = 7441070828291625870L;
 
 	public CommandException() {
 		super();

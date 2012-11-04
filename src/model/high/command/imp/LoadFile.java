@@ -1,4 +1,4 @@
-package model.high.implementation;
+package model.high.command.imp;
 
 import model.high.command.Command;
 import model.low.document.DocumentLoader;

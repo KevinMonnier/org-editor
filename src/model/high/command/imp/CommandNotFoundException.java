@@ -1,8 +1,6 @@
-package model.high.implementation;
+package model.high.command.imp;
 
 public class CommandNotFoundException extends RuntimeException {
-
-	private static final long serialVersionUID = 1L;
 
 	public CommandNotFoundException() {
 		super();

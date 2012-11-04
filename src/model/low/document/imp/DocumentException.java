@@ -2,8 +2,6 @@ package model.low.document.imp;
 
 public class DocumentException extends RuntimeException {
 
-	private static final long serialVersionUID = 1L;
-
 	public DocumentException() {
 		super();
 	}
