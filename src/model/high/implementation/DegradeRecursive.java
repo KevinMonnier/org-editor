@@ -9,6 +9,13 @@ public class DegradeRecursive implements Command {
 
 	private Editor editor;
 	
+	
+	
+	public DegradeRecursive(Editor editor) {
+		super();
+		this.editor = editor;
+	}
+
 	@Override
 	public boolean match(CharSequence str) {
 		return str.equals(EditCommands.DOWNGRADE_RECURSIVE);

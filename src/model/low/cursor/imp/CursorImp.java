@@ -58,7 +58,8 @@ public class CursorImp extends VisitorImp implements Cursor {
 			this.selectLineDown();
 			this.setCurrentPosition(0);
 		}
-		setCurrentPosition(getCurrentPosition() + 1);
+		else
+			setCurrentPosition(getCurrentPosition() + 1);
 	}
 
 	@Override
