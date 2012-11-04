@@ -30,6 +30,7 @@ public class WriteKey extends KeyAdapter {
 		}
 		else switch (e.getKeyChar()) {
 		case '\u0008':
+		case '\u007F':
 			break;
 		case '\n':
 			this.editor.newLine();
@@ -43,14 +44,28 @@ public class WriteKey extends KeyAdapter {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if(e.getKeyCode() == KeyEvent.VK_UP)
+		
+		switch(e.getKeyCode()) {
+		case KeyEvent.VK_UP:
 			this.editor.getCursor().selectLineUp();
-		if(e.getKeyCode() == KeyEvent.VK_DOWN)
+			break;
+		case KeyEvent.VK_DOWN:
 			this.editor.getCursor().selectLineDown();
-		if(e.getKeyCode() == KeyEvent.VK_LEFT)
+			break;
+		case KeyEvent.VK_LEFT:
 			this.editor.getCursor().movePositionLeft();
-		if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+			break;
+		case KeyEvent.VK_RIGHT:
 			this.editor.getCursor().movePositionRight();
+			break;
+		case KeyEvent.VK_DELETE:
+			this.editor.getSelectedLine().deleteCharAt(this.editor.getSelectedCharacterNb());
+			break;
+		case KeyEvent.VK_BACK_SPACE:
+			this.editor.getSelectedLine().deleteCharAt(this.editor.getSelectedCharacterNb()-1);
+			this.editor.getCursor().movePositionLeft();
+			break;
+		}
 
 		view.getDocument().setText(this.editor.print());
 	}
