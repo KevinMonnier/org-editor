@@ -4,7 +4,6 @@ import model.high.command.Command;
 import model.high.editor.Editor;
 import model.low.buffer.Buffer;
 import model.low.document.Line;
-import model.low.document.TextIntro;
 import model.low.document.imp.LineImp;
 import model.low.document.imp.SectionImp;
 import model.low.document.imp.TitleImp;
@@ -38,7 +37,12 @@ public class Copy implements Command {
 			buffer.push(new LineImp(null, line));//insert a copy
 		}
 		else {
-			buffer.push(new SectionImp((SectionImp)((TitleImp)line.getParent()).getParent(), null));
+			if(((SectionImp)((TitleImp)line.getParent()).getParent()).isVisible()) {
+				buffer.push(new LineImp(null, line));//insert a copy
+			}
+			else {
+				buffer.push(new SectionImp((SectionImp)((TitleImp)line.getParent()).getParent(), null));
+			}
 		}
 	}
 
