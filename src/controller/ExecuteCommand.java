@@ -21,7 +21,6 @@ public class ExecuteCommand extends AbstractAction {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
 		String command = view.getCommand().getText();
 		view.getCommand().setText("");
 		this.view.getCommand().setVisible(false);

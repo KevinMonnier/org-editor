@@ -20,7 +20,6 @@ import model.low.document.imp.LineImp;
 public class EditorImp implements Editor {
 
 	private Document document;
-	private int selectedLine;
 	private ArrayList<Command> commands;
 	private HasSubSection selectedItem;
 	private Cursor cursor;
@@ -50,11 +49,6 @@ public class EditorImp implements Editor {
 	}
 
 	@Override
-	public int getSelectedLineNb() {
-		return this.selectedLine;
-	}
-
-	@Override
 	public int getSelectedCharacterNb() {
 		return this.cursor.getCurrentPosition();
 	}
@@ -66,6 +60,10 @@ public class EditorImp implements Editor {
 
 	@Override
 	public void executeCommand(String c) {
+		if (c.equals("" + this.getCommandChar())) {
+			this.insertChar(c.charAt(0));
+			return;
+		}
 		int i = 0;
 		while (i < this.commands.size() && !this.commands.get(i).match(c)) {
 			i++;
@@ -122,7 +120,12 @@ public class EditorImp implements Editor {
 		for (int i = 0; i < intro.getLineNb(); i++) {
 			if (intro.getLine(i).equals(selectedLine)) {
 				printed.append(new StringBuilder(intro.getLine(i).toString())
-						.insert(this.getSelectedCharacterNb(), "[]") + "\n");
+						.insert(this.getSelectedCharacterNb(), "[").insert(
+								this.getSelectedLine().length() == this
+										.getSelectedCharacterNb() ? this
+										.getSelectedCharacterNb() + 1 : this
+										.getSelectedCharacterNb() + 2, "]")
+						+ "\n");
 			} else {
 				printed.append(intro.getLine(i).toString() + "\n");
 			}
@@ -143,7 +146,11 @@ public class EditorImp implements Editor {
 		}
 		if (section.getTitle().getLine().equals(selectedLine)) {
 			printed.append(new StringBuilder(section.getTitle().getLine()
-					.toString()).insert(this.getSelectedCharacterNb(), "[]"));
+					.toString()).insert(this.getSelectedCharacterNb(), "[")
+					.insert(this.getSelectedLine().length() == this
+							.getSelectedCharacterNb() ? this
+							.getSelectedCharacterNb() + 1 : this
+							.getSelectedCharacterNb() + 2, "]"));
 		} else
 			printed.append(section.getTitle().getLine().toString());
 
@@ -161,7 +168,8 @@ public class EditorImp implements Editor {
 			}
 
 			for (int i = 0; i < section.getSubSectionNb(); i++) {
-				printed.append(this.printSection(section.getSubSection(i), lvl + 1));
+				printed.append(this.printSection(section.getSubSection(i),
+						lvl + 1));
 			}
 		} else {
 			printed.append("... \n");
@@ -177,12 +185,11 @@ public class EditorImp implements Editor {
 		if (parent instanceof TextIntro) {
 			((TextIntro) parent).insertLine(new LineImp(parent),
 					this.getSelectedLine());
-		}
-		else if(parent instanceof Title) {
-			TextIntro text = ((Title)parent).getParent().getTextIntro();
+		} else if (parent instanceof Title) {
+			TextIntro text = ((Title) parent).getParent().getTextIntro();
 			text.insertLine(new LineImp(text), 0);
 		}
-			this.getCursor().selectLineDown();
+		this.getCursor().selectLineDown();
 	}
 
 	@Override

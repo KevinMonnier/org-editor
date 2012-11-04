@@ -12,6 +12,10 @@ public class UpgradeRecursive implements Command {
 
 	private Editor editor;
 
+	public UpgradeRecursive(Editor editor) {
+		this.editor = editor;
+	}
+
 	@Override
 	public boolean match(CharSequence str) {
 		return str.equals(EditCommands.UPGRADE_RECURSIVE);

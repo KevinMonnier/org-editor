@@ -25,11 +25,6 @@ public interface Editor {
 	 */
 	public HasSubSection getSelectedItem();
 
-	/**
-	 * @return The line number where the cursor is in the selected Text.
-	 */
-	public int getSelectedLineNb();
-
 	public Line getSelectedLine();
 
 	/**

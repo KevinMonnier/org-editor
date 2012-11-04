@@ -2,9 +2,11 @@ package controller;
 
 import model.high.editor.Editor;
 import model.high.implementation.AddSection;
+import model.high.implementation.DegradeRecursive;
 import model.high.implementation.EditorImp;
 import model.high.implementation.HideUnhide;
 import model.high.implementation.MoveCursor;
+import model.high.implementation.UpgradeRecursive;
 import model.low.cursor.imp.CursorImp;
 import model.low.document.imp.DocumentImp;
 import view.EditorView;
@@ -26,6 +28,10 @@ public class Controller {
 		this.editor.executeCommand("** section 1.1");
 		this.editor.executeCommand("** section 1.2");
 		this.editor.executeCommand("* section 2");
+		this.editor.executeCommand("** section 2.1");
+		this.editor.executeCommand("** section 2.2");
+		this.editor.executeCommand("*** section 2.2.1");
+		
 		//[/TEST]
 		
 		this.view.getDocument().setText(this.editor.print());
@@ -35,5 +41,7 @@ public class Controller {
 		this.editor.addCommand(new AddSection(this.editor));
 		this.editor.addCommand(new MoveCursor(this.editor));
 		this.editor.addCommand(new HideUnhide(this.editor));
+		this.editor.addCommand(new DegradeRecursive(this.editor));
+		this.editor.addCommand(new UpgradeRecursive(this.editor));
 	}
 }
