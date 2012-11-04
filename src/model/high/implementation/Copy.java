@@ -4,15 +4,18 @@ import model.high.command.Command;
 import model.high.editor.Editor;
 import model.low.buffer.Buffer;
 import model.low.document.Line;
+import model.low.document.TextIntro;
 import model.low.document.imp.LineImp;
+import model.low.document.imp.SectionImp;
+import model.low.document.imp.TitleImp;
 
-public class CopyLine implements Command {
+public class Copy implements Command {
 	
 	private Editor editor;
 	private Buffer buffer;
 	
 
-	public CopyLine(Editor editor, Buffer buffer) {
+	public Copy(Editor editor, Buffer buffer) {
 		super();
 		this.editor = editor;
 		this.buffer = buffer;
@@ -30,8 +33,13 @@ public class CopyLine implements Command {
 		
 		
 		Line line = this.editor.getSelectedLine();
-		buffer.push(new LineImp(null, line));//insert a copy
 		
+		if(line.isInTextIntro()) {
+			buffer.push(new LineImp(null, line));//insert a copy
+		}
+		else {
+			buffer.push(new SectionImp((SectionImp)((TitleImp)line.getParent()).getParent(), null));
+		}
 	}
 
 }

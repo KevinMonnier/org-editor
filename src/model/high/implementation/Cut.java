@@ -6,6 +6,8 @@ import model.low.buffer.Buffer;
 import model.low.document.Line;
 import model.low.document.TextIntro;
 import model.low.document.imp.LineImp;
+import model.low.document.imp.SectionImp;
+import model.low.document.imp.TitleImp;
 
 public class Cut implements Command {
 
@@ -29,13 +31,17 @@ public class Cut implements Command {
 			throw new CommandException("this function does not match " + str);
 		
 		Line line = this.editor.getSelectedLine();
-		buffer.push(new LineImp(null, line));//insert a copy
+		
 		if(line.isInTextIntro()) {
+			buffer.push(new LineImp(null, line));//insert a copy
 			editor.getCursor().selectLineDown();
 			((TextIntro)line.getParent()).remove(line.getIndex());
 		}
 		else {
-			//TODO section
+			buffer.push(new SectionImp((SectionImp)((TitleImp)line.getParent()).getParent(), null));
+			editor.getCursor().selectLineUp();
+			((SectionImp)((TitleImp)line.getParent()).getParent()).getParent().getSubSections().remove(((SectionImp)((TitleImp)line.getParent()).getParent()).getIndex());
+			editor.getCursor().selectLineDown();
 		}
 	}
 

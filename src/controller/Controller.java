@@ -2,7 +2,7 @@ package controller;
 
 import model.high.editor.Editor;
 import model.high.implementation.AddSection;
-import model.high.implementation.CopyLine;
+import model.high.implementation.Copy;
 import model.high.implementation.Cut;
 import model.high.implementation.Degrade;
 import model.high.implementation.DegradeRecursive;
@@ -56,7 +56,7 @@ public class Controller {
 		this.editor.addCommand(new DegradeRecursive(this.editor));
 		this.editor.addCommand(new UpgradeRecursive(this.editor));
 		this.editor.addCommand(new Degrade(this.editor));
-		this.editor.addCommand(new CopyLine(this.editor, this.buffer));
+		this.editor.addCommand(new Copy(this.editor, this.buffer));
 		this.editor.addCommand(new Cut(this.editor, this.buffer));
 		this.editor.addCommand(new Paste(this.editor, this.buffer));
 		this.editor.addCommand(new DeleteFromBuffer(this.buffer));
