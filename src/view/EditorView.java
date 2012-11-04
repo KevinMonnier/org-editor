@@ -12,6 +12,7 @@ public class EditorView extends JFrame {
 	JTextArea document;
 
 	public EditorView() {
+		super("org editor, MONNIER RICHEZ");
 		//JMenuBar menuBar = new JMenuBar();
 		//JMenu menu = new JMenu("File");
 		//menuBar.add(menu);

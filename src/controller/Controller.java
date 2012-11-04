@@ -36,6 +36,7 @@ public class Controller {
 		this.view.getCommand().setAction(new ExecuteCommand(view, editor));
 		
 		//[TEST]
+		this.editor.getDocument().getTextIntro().getFirstLine().replaceContent(new StringBuilder("testing document"));
 		this.editor.executeCommand("* section 1");
 		this.editor.executeCommand("** section 1.1");
 		this.editor.executeCommand("** section 1.2");
