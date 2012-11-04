@@ -14,9 +14,10 @@ public class EditorView extends JFrame {
 	JTextArea document;
 
 	public EditorView() {
-		JMenuBar menuBar = new JMenuBar();
-		JMenu menu = new JMenu("File"); // TODO localization here
-		menuBar.add(menu);
+		//JMenuBar menuBar = new JMenuBar();
+		//JMenu menu = new JMenu("File");
+		//menuBar.add(menu);
+		//this.setJMenuBar(menuBar);
 
 		JPanel pan = new JPanel();
 		pan.setLayout(new BorderLayout());
@@ -31,7 +32,6 @@ public class EditorView extends JFrame {
 		pan.add(this.command, BorderLayout.SOUTH);
 
 		this.command.setVisible(false);
-		this.setJMenuBar(menuBar);
 		this.setContentPane(pan);
 		this.pack();
 
