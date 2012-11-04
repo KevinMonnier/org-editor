@@ -104,12 +104,16 @@ public class LineImp implements Line {
 	@Override
 	public Line getNextFromTitle() {
 		Title title = (Title) this.getParent();
-		if (title.getParent().isVisible()
-				&& title.getParent().getTextIntro().getLineNb() > 0) {
-			return title.getParent().getTextIntro().getFirstLine();
+		if (title.getParent().isVisible()) {
+				if (title.getParent().getTextIntro().getLineNb() > 0) {
+					return title.getParent().getTextIntro().getFirstLine();
+				}
+				else {
+					return title.getParent().getNextSection().getFirstLine();
+				}
 		} else {
-			if (title.getParent().getNextSection() != null) {
-				return title.getParent().getNextSection().getFirstLine();
+			if (title.getParent().getNextSiblingOrAncestor() != null) {
+				return title.getParent().getNextSiblingOrAncestor().getFirstLine();
 			}
 			return this;
 		}
