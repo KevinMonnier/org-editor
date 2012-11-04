@@ -15,7 +15,8 @@ public final class EditCommands {
 		DOWNGRADE_RECURSIVE = "D",
 		UPGRADE = "g",
 		UPGRADE_RECURSIVE = "G",
-		HIDE_OR_SHOW = "p";
+		HIDE_OR_SHOW = "p",
+		LOAD_FILE = "l";
 	public static final char COMMAND_CHAR = '\\';
 	
 }

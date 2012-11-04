@@ -7,6 +7,7 @@ import model.high.implementation.Degrade;
 import model.high.implementation.DegradeRecursive;
 import model.high.implementation.EditorImp;
 import model.high.implementation.HideUnhide;
+import model.high.implementation.LoadFile;
 import model.high.implementation.MoveCursor;
 import model.high.implementation.Paste;
 import model.high.implementation.UpgradeRecursive;
@@ -14,6 +15,7 @@ import model.low.buffer.Buffer;
 import model.low.buffer.imp.BufferImp;
 import model.low.cursor.imp.CursorImp;
 import model.low.document.imp.DocumentImp;
+import model.low.document.imp.DocumentLoaderImp;
 import view.EditorView;
 
 public class Controller {
@@ -52,6 +54,7 @@ public class Controller {
 		this.editor.addCommand(new UpgradeRecursive(this.editor));
 		this.editor.addCommand(new Degrade(this.editor));
 		this.editor.addCommand(new CopyLine(this.editor, this.buffer));
-		this.editor.addCommand(new Paste(editor, buffer));
+		this.editor.addCommand(new Paste(this.editor, this.buffer));
+		this.editor.addCommand(new LoadFile(this.editor, new DocumentLoaderImp()));
 	}
 }
