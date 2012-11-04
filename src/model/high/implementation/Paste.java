@@ -5,7 +5,6 @@ import model.high.editor.Editor;
 import model.low.buffer.Buffer;
 import model.low.document.Line;
 import model.low.document.Section;
-import model.low.document.Text;
 import model.low.document.TextIntro;
 import model.low.document.Title;
 import model.low.document.imp.LineImp;
@@ -28,9 +27,11 @@ public class Paste implements Command {
 
 	@Override
 	public void execute(CharSequence str) {
-		if (this.buffer.peek() instanceof Line)
-			this.copyLine((Line) this.buffer.peek());
-		//TODO section
+		if(!this.buffer.empty()) {
+			if (this.buffer.peek() instanceof Line)
+				this.copyLine((Line) this.buffer.peek());
+			//TODO section
+		}	
 	}
 
 	private void copyLine(Line l) {
