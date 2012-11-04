@@ -108,8 +108,11 @@ public class LineImp implements Line {
 				if (title.getParent().getTextIntro().getLineNb() > 0) {
 					return title.getParent().getTextIntro().getFirstLine();
 				}
-				else {
+				else if(title.getParent().getNextSection() != null){
 					return title.getParent().getNextSection().getFirstLine();
+				}
+				else {
+					return this;
 				}
 		} else {
 			if (title.getParent().getNextSiblingOrAncestor() != null) {
