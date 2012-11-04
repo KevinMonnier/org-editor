@@ -3,8 +3,10 @@ package controller;
 import model.high.editor.Editor;
 import model.high.implementation.AddSection;
 import model.high.implementation.CopyLine;
+import model.high.implementation.Cut;
 import model.high.implementation.Degrade;
 import model.high.implementation.DegradeRecursive;
+import model.high.implementation.DeleteFromBuffer;
 import model.high.implementation.EditorImp;
 import model.high.implementation.HideUnhide;
 import model.high.implementation.LoadFile;
@@ -15,7 +17,6 @@ import model.high.implementation.UpgradeRecursive;
 import model.low.buffer.Buffer;
 import model.low.buffer.imp.BufferImp;
 import model.low.cursor.imp.CursorImp;
-import model.low.document.imp.DocumentImp;
 import model.low.document.imp.DocumentLoaderImp;
 import model.low.document.imp.DocumentWriterImp;
 import view.EditorView;
@@ -56,7 +57,9 @@ public class Controller {
 		this.editor.addCommand(new UpgradeRecursive(this.editor));
 		this.editor.addCommand(new Degrade(this.editor));
 		this.editor.addCommand(new CopyLine(this.editor, this.buffer));
+		this.editor.addCommand(new Cut(this.editor, this.buffer));
 		this.editor.addCommand(new Paste(this.editor, this.buffer));
+		this.editor.addCommand(new DeleteFromBuffer(this.buffer));
 		this.editor.addCommand(new LoadFile(this.editor, new DocumentLoaderImp()));
 		this.editor.addCommand(new Save(this.editor, new DocumentWriterImp()));
 	}
